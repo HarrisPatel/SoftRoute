@@ -1021,7 +1021,7 @@
                             viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                             stroke-linecap="round" stroke-linejoin="round">
                             <path d="m15 18-6-6 6-6" />
-                        </svg></button><img class="main-image" id="mainImage" src="etsy-images/p1.png"
+                        </svg></button><img class="main-image" id="mainImage" src="etsy-images/p1.webp"
                         alt="Etsy Execution Roadmap preview"><button class="gallery-arrow next"
                         aria-label="Next image"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
                             stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -1243,7 +1243,7 @@
                     stroke-linejoin="round" />
             </svg></a></div>
     <script>
-        const images = ['etsy-images/p1.png', 'etsy-images/p2.png', 'etsy-images/p3.png', 'etsy-images/p4.png', 'etsy-images/p5.png', 'etsy-images/p6.png']; let current = 0; const main = document.getElementById('mainImage'), thumbs = document.getElementById('thumbs'); function setImage(i) {current = (i + images.length) % images.length; main.src = images[current]; document.querySelectorAll('.thumb').forEach((x, n) => x.classList.toggle('active', n === current))} images.forEach((src, i) => {const b = document.createElement('button'); b.className = 'thumb' + (i === 0 ? ' active' : ''); b.innerHTML = `<img src="${src}" alt="Etsy roadmap preview ${i + 1}">`; b.onclick = () => setImage(i); thumbs.appendChild(b)}); document.querySelector('.prev').onclick = () => setImage(current - 1); document.querySelector('.next').onclick = () => setImage(current + 1); main.onclick = () => {document.getElementById('lightboxImage').src = main.src; document.getElementById('lightbox').classList.add('show')}; document.querySelector('.close-lightbox').onclick = () => document.getElementById('lightbox').classList.remove('show'); document.getElementById('lightbox').onclick = e => {if (e.target.id === 'lightbox') e.currentTarget.classList.remove('show')}; 
+        const images = ['etsy-images/p1.webp', 'etsy-images/p2.webp', 'etsy-images/p3.webp', 'etsy-images/p4.webp', 'etsy-images/p5.webp', 'etsy-images/p6.webp']; let current = 0; const main = document.getElementById('mainImage'), thumbs = document.getElementById('thumbs'); function setImage(i) {current = (i + images.length) % images.length; main.src = images[current]; document.querySelectorAll('.thumb').forEach((x, n) => x.classList.toggle('active', n === current))} images.forEach((src, i) => {const b = document.createElement('button'); b.className = 'thumb' + (i === 0 ? ' active' : ''); b.innerHTML = `<img src="${src}" alt="Etsy roadmap preview ${i + 1}">`; b.onclick = () => setImage(i); thumbs.appendChild(b)}); document.querySelector('.prev').onclick = () => setImage(current - 1); document.querySelector('.next').onclick = () => setImage(current + 1); main.onclick = () => {document.getElementById('lightboxImage').src = main.src; document.getElementById('lightbox').classList.add('show')}; document.querySelector('.close-lightbox').onclick = () => document.getElementById('lightbox').classList.remove('show'); document.getElementById('lightbox').onclick = e => {if (e.target.id === 'lightbox') e.currentTarget.classList.remove('show')}; 
         
         const offer = {
     enabled: true,
