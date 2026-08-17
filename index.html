@@ -1,0 +1,609 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Soft Route</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --accent: #f1641e;
+            --accent-rgb: 241, 100, 30;
+            --bg: #0a0a0c;
+            --panel: #111217;
+            --muted: #ffffff99;
+            --border: #ffffff14
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0
+        }
+
+        html {
+            scroll-behavior: smooth
+        }
+
+        body {
+            min-height: 100vh;
+            overflow-x: hidden;
+            background: var(--bg);
+            color: #fff;
+            font-family: 'Plus Jakarta Sans', sans-serif
+        }
+
+        button,
+        a {
+            font: inherit
+        }
+
+        button {
+            border: 0;
+            cursor: pointer
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit
+        }
+
+        .header {
+            padding: 14px 40px;
+            border-bottom: 1px solid #ffffff0a
+        }
+
+        .header-inner,
+        .container,
+        .footer-inner,
+        .footer-bottom {
+            max-width: 1280px;
+            margin: auto
+        }
+
+        .header-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px
+        }
+
+        .logo {
+            font: 900 21px Outfit;
+            letter-spacing: -.04em;
+            text-transform: uppercase
+        }
+
+        .logo span,
+        .footer-brand span {
+            color: var(--accent)
+        }
+
+        .header-right {
+            display: flex;
+            align-items: center;
+            gap: 32px;
+            color: #fff8;
+            font: 11px 'JetBrains Mono';
+            letter-spacing: .12em;
+            text-transform: uppercase
+        }
+
+        .price {
+            color: #fffc;
+            font-weight: 700;
+            white-space: nowrap
+        }
+
+        .price strong {
+            color: #fff
+        }
+
+        .buy-button {
+            padding: 7px 15px;
+            border-radius: 4px;
+            background: #fff;
+            color: #000;
+            font: 900 12px Outfit;
+            text-transform: uppercase;
+            transition: .2s
+        }
+
+        .buy-button:hover {
+            opacity: .9;
+            transform: translateY(-1px)
+        }
+
+        .container {
+            padding: 24px 40px
+        }
+
+        .hero {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+            align-items: start;
+            gap: 28px;
+            margin-bottom: 18px
+        }
+
+        h1 {
+            margin-bottom: 18px;
+            font: 900 clamp(42px, 5vw, 74px)/.95 Outfit;
+            letter-spacing: -.06em;
+            text-transform: uppercase;
+            word-spacing: 6px
+        }
+
+        .heading-line-1,
+        .heading-line-2 {
+            color: #fff !important
+        }
+
+        .accent-text {
+            color: var(--accent)
+        }
+
+        .intro {
+            max-width: 560px;
+            color: var(--muted);
+            font-size: 13px;
+            line-height: 1.7
+        }
+
+        .platform-wrapper {
+            display: flex;
+            justify-content: flex-end
+        }
+
+        .platforms {
+            max-width: 100%;
+            padding: 4px;
+            display: flex;
+            overflow-x: auto;
+            border: 1px solid var(--border);
+            border-radius: 999px;
+            background: #14151a;
+            box-shadow: inset 0 2px 4px #0004
+        }
+
+        .platform {
+            width: 110px;
+            padding: 9px 20px;
+            border-radius: 999px;
+            background: transparent;
+            color: #fff9;
+            font: 700 11px 'JetBrains Mono';
+            letter-spacing: .1em;
+            text-transform: uppercase;
+            white-space: nowrap;
+            transition: .25s
+        }
+
+        .platform:hover {
+            color: #fff;
+            background: #ffffff0d
+        }
+
+        .platform.active {
+            background: var(--accent);
+            color: #000;
+            box-shadow: 0 0 16px rgba(var(--accent-rgb), .4)
+        }
+
+        .premium-badge {
+            margin-left: 6px;
+            color: #ffd875;
+            font-size: 9px
+        }
+
+        .content {
+            display: grid;
+            grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+            align-items: start;
+            gap: 28px
+        }
+
+        .mission-info {
+            display: flex;
+            flex-direction: column;
+            /* justify-content: space-between; */
+            gap: 30px
+        }
+
+        .mission-title {
+            margin-bottom: 18px;
+            display: flex;
+            align-items: center;
+            gap: 9px;
+            font: 900 16px Outfit;
+            letter-spacing: -.02em;
+            text-transform: uppercase
+        }
+
+        .mission-title:before {
+            content: '';
+            width: 8px;
+            height: 8px;
+            flex: none;
+            border-radius: 50%;
+            background: var(--accent)
+        }
+
+        .steps {
+            display: grid;
+            gap: 12px;
+            margin-bottom: 20px
+        }
+
+        .step {
+            display: flex;
+            gap: 10px;
+            color: var(--muted);
+            font-size: 13px;
+            line-height: 1.45
+        }
+
+        .step-icon {
+            flex: none;
+            color: var(--accent);
+            font-size: 15px
+        }
+
+        .step strong {
+            color: #fff;
+            font-weight: 800
+        }
+
+        .description {
+            max-width: 560px;
+            color: var(--muted);
+            font-size: 12px;
+            line-height: 1.7
+        }
+
+        .launch-area {
+            margin-top: 22px
+        }
+
+        .launch-button {
+            padding: 15px 30px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--accent);
+            color: #000;
+            box-shadow: 0 4px 24px rgba(var(--accent-rgb), .4);
+            font: 900 14px Outfit;
+            letter-spacing: .08em;
+            text-transform: uppercase;
+            transition: .25s
+        }
+
+        .launch-button:hover {
+            filter: brightness(1.1);
+            transform: translateY(-2px)
+        }
+
+        .trust {
+            margin-top: 12px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            color: #fff6;
+            font: 10px 'JetBrains Mono'
+        }
+
+        .trust .green {
+            color: #34d399
+        }
+
+        .dashboard-image {
+           
+        }
+
+        .dashboard-image img {
+            display: block;
+            width: 100%;
+            height: auto
+        }
+
+        .footer {
+            margin-top: 48px;
+            padding: 28px 40px;
+            border-top: 1px solid #ffffff14;
+            background: #080808;
+            color: #fff8
+        }
+
+        .footer-inner {
+            display: flex;
+            justify-content: space-between;
+            gap: 30px
+        }
+
+        .footer-brand {
+            font: 800 18px Outfit;
+            text-transform: uppercase
+        }
+
+        .footer-copy {
+            max-width: 510px;
+            color: #fff6;
+            font-size: 12px;
+            line-height: 1.7
+        }
+
+        .footer-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 18px;
+            color: #fff8;
+            font: 10px 'JetBrains Mono';
+            letter-spacing: .08em;
+            text-transform: uppercase
+        }
+
+        .footer-links a:hover {
+            color: var(--accent)
+        }
+
+        .footer-bottom {
+            margin-top: 22px;
+            padding-top: 16px;
+            border-top: 1px solid #ffffff0f;
+            display: flex;
+            justify-content: space-between;
+            color: #fff5;
+            font: 10px 'JetBrains Mono'
+        }
+
+        .coming-soon {
+            position: fixed;
+            inset: 0;
+            z-index: 100;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            background: #000c;
+            backdrop-filter: blur(12px)
+        }
+
+        .coming-soon.show {
+            display: flex
+        }
+
+        .coming-card {
+            width: min(460px, 100%);
+            padding: 36px;
+            border: 1px solid #ffffff29;
+            border-radius: 22px;
+            background: linear-gradient(145deg, #191a20, #0c0d11);
+            box-shadow: 0 30px 90px #000b;
+            text-align: center
+        }
+
+        .coming-lock {
+            margin-bottom: 14px;
+            font-size: 34px
+        }
+
+        .coming-card h2 {
+            margin-bottom: 12px;
+            font: 900 30px Outfit;
+            text-transform: uppercase
+        }
+
+        .coming-card p {
+            margin-bottom: 24px;
+            color: var(--muted);
+            font-size: 13px;
+            line-height: 1.7
+        }
+
+        .close-modal {
+            padding: 12px 22px;
+            border-radius: 999px;
+            background: var(--accent);
+            color: #000;
+            font: 900 12px Outfit;
+            text-transform: uppercase
+        }
+
+        .close-modal:hover {
+            filter: brightness(1.1)
+        }
+
+        @media(max-width:900px) {
+
+            .header,
+            .container {
+                padding-left: 22px;
+                padding-right: 22px
+            }
+
+            .hero,
+            .content {
+                grid-template-columns: 1fr
+            }
+
+            .platform-wrapper {
+                justify-content: flex-start
+            }
+
+            .content {
+                gap: 35px
+            }
+
+            .footer {
+                padding: 28px 22px
+            }
+
+            .footer-inner,
+            .footer-bottom {
+                flex-direction: column
+            }
+
+            .footer-bottom {
+                gap: 8px
+            }
+        }
+
+        @media(max-width:600px) {
+            .header-inner {
+                align-items: flex-start
+            }
+
+            .header-right {
+                gap: 10px
+            }
+
+            .header-right>span:first-child,
+            .header-right>span:last-of-type {
+                display: none
+            }
+
+            .logo {
+                font-size: 18px
+            }
+
+            h1 {
+                font-size: 48px
+            }
+
+            .platform {
+                padding: 9px 15px
+            }
+
+            .launch-button {
+                width: 100%
+            }
+        }
+
+        @media (min-width: 901px) {
+            html, body { height: 100%; }
+            body {  overflow-x: hidden;
+                overflow-y: auto; }
+            .header { height: 60px; padding-top: 12px; padding-bottom: 12px; }
+            .container {
+                min-height: calc(100vh - 60px);
+                height: auto;
+                padding-top: 24px;
+                padding-bottom: 24px;
+                display: block;
+                }
+            .hero { flex: 0 0 auto; margin-bottom: clamp(10px, 1.5vh, 18px); }
+            h1 { margin-bottom: clamp(8px, 1.2vh, 18px); font-size: clamp(53px, 6.1vh, 74px); }
+            .intro { line-height: 1.45; }
+            .content { flex: 1 1 auto; min-height: 0; align-items: stretch; }
+            .mission-info { min-height: 0; gap: 14px; }
+            .mission-title { margin-bottom: 10px; }
+            .steps { gap: 8px; margin-bottom: 10px; }
+            .step { font-size: 12px; }
+            .description { line-height: 1.45; }
+            .launch-area { margin-top: 12px; }
+            .dashboard-image { height: auto; position: relative;
+        top: -190px;
+        right: -40px;}
+            .dashboard-image img {
+                width: 100%;
+                height: auto;
+                object-fit: initial;
+                }
+            .footer { display: block; }
+        }
+
+        /* Mobile order: heading → tabs → image → features → button */
+        @media (max-width: 900px) {
+            .container { display: flex; flex-direction: column; }
+            .hero { display: contents; }
+            .hero > div:first-child { order: 1; }
+            .platform-wrapper { order: 2; margin-top: 30px; margin-bottom: 18px; }
+            .content { display: contents; }
+            .dashboard-image { order: 3; margin-top: 30px;}
+            .mission-info { display: contents; }
+            .mission-info > div:first-child { order: 4; margin-top: 24px; }
+            .launch-area { order: 5; margin-top: 22px; margin-bottom: 4px; }
+        }
+    </style>
+</head>
+
+<body>
+    <header class="header">
+        <div class="header-inner">
+            <div class="logo">Soft<span>Route</span></div>
+            <div class="header-right"><span>Personalized Roadmaps</span><span class="price">One-Time <strong
+                        class="price-value">$19</strong></span><span>Execution First</span><a
+                    class="buy-button buy-link" href="#">Buy $19</a></div>
+        </div>
+    </header>
+    <main class="container">
+        <section class="hero">
+            <div>
+                <h1><span class="heading-line-1"></span><br><span class="heading-line-2"></span><br><span
+                        class="accent-text accent-heading-1"></span><br><span
+                        class="accent-text accent-heading-2"></span></h1>
+                <p class="intro intro-text"></p>
+            </div>
+            <div class="platform-wrapper">
+                <div class="platforms" id="platforms"></div>
+            </div>
+        </section>
+        <section class="content">
+            <div class="mission-info">
+                <div>
+                    <h2 class="mission-title"><span class="title-text"></span><span class="weeks-text">(30–180 Day
+                            Roadmap)</span></h2>
+                    <div class="steps" id="steps"></div>
+                    <p class="description description-text"></p>
+                </div>
+                <div class="launch-area"><a class="launch-button launch-link" href="#"><span>Get It For $19 →</span></a>
+                    <div class="trust">You will receive an instant Zip <br> after your purchase.</span></div>
+                </div>
+            </div>
+            <div class="dashboard-image"><img id="dashboardImage" src="dashboard-etsy.png"
+                    alt="Mission dashboard preview"></div>
+        </section>
+    </main>
+    <footer class="footer">
+        <div class="footer-inner">
+            <div>
+                <div class="footer-brand">Mission<span>Control</span></div>
+                <p class="footer-copy">Personalized execution roadmaps that turn what you have learned into clear daily
+                    action.</p>
+            </div>
+            <nav class="footer-links"><a href="#">Secure Checkout</a><a href="#">30-Day Guarantee</a><a href="#">Instant
+                    Delivery</a><a href="#">Contact</a></nav>
+        </div>
+        <div class="footer-bottom"><span>© 2026 Soft Route. All rights reserved.</span><span>Built for execution,
+                not endless learning.</span></div>
+    </footer>
+    <div class="coming-soon" id="comingSoon">
+        <div class="coming-card">
+            <div class="coming-lock">🔒</div>
+            <h2><span id="soonProduct">Amazon</span> Is Coming Soon</h2>
+            <p>This premium execution roadmap is being prepared. Get a complete category-specific plan built around your
+                goals in the next release.</p><button class="close-modal" id="closeModal">Back To Etsy</button>
+        </div>
+    </div>
+    <script>
+        const products = {
+            etsy: {name: 'Etsy', color: '#f1641e', rgb: '241,100,30', buyUrl: 'etsy-product.html', dashboard: 'mockup-image.png', heading: ['Started Etsy,', 'Then Lost Momentum?'], accent: ['Turn Your Goal Into', 'Daily Action.'], description: 'A personalized day roadmap that tells you exactly what to work on next, from product research to launching and growing your store.', steps: [['ASSESS', 'Tell us where you are and where you want to go.'], ['PLAN', 'Get a roadmap built around your goals and timeline.'], ['EXECUTE', 'Complete one focused mission at a time.'], ['TRACK', 'See your progress, money, and momentum in one place.']]},
+            amazon: {name: 'Amazon', color: '#f5b82e', rgb: '245,184,46', comingSoon: true}, fiverr: {name: 'Fiverr', color: '#1dbf73', rgb: '29,191,115', comingSoon: true}, shopify: {name: 'Shopify', color: '#96bf48', rgb: '150,191,72', comingSoon: true}, ebay: {name: 'eBay', color: '#65a7ff', rgb: '101,167,255', comingSoon: true}
+        };
+        const $ = s => document.querySelector(s), key = () => products[location.hash.slice(1).toLowerCase()] ? location.hash.slice(1).toLowerCase() : 'etsy';
+        function render() {
+            let k = key(), p = products[k]; 
+            document.documentElement.style.setProperty('--accent', p.color); 
+            document.documentElement.style.setProperty('--accent-rgb', p.rgb); 
+            document.title = p.name + ' Mission — Soft Route'; $('.heading-line-1').textContent = p.heading[0]; $('.heading-line-2').textContent = p.heading[1]; $('.accent-heading-1').textContent = p.accent[0]; $('.accent-heading-2').textContent = p.accent[1]; $('.intro-text').textContent = p.description; $('.title-text').textContent = p.name + ' Mission Sprint'; $('.description-text').textContent = "No more jumping between tutorials. No more wondering what comes next. Just your next move, every day."; $('.buy-link').href = p.buyUrl || '#'; $('.launch-link').href = p.buyUrl || '#'; $('#dashboardImage').src = p.dashboard || 'dashboard.png'; $('#dashboardImage').alt = p.name + ' mission dashboard preview'; $('#platforms').innerHTML = Object.keys(products).map(x => '<button class="platform ' + (x === k ? 'active' : '') + '" data-product="' + x + '">' + products[x].name + '</button>').join(''); $('#steps').innerHTML = (p.steps || []).map((x, i) => '<div class="step"><span class="step-icon">' + ['◈', '◇', '◆', '◎'][i] + '</span><div><strong>' + x[0] + '</strong><span> — ' + x[1] + '</span></div></div>').join(''); document.querySelectorAll('.platform').forEach(b => b.onclick = () => {let q = products[b.dataset.product]; if (q.comingSoon) {document.documentElement.style.setProperty('--accent', q.color); document.documentElement.style.setProperty('--accent-rgb', q.rgb); $('#soonProduct').textContent = q.name; $('#comingSoon').classList.add('show')} else {location.hash = b.dataset.product; render()} })}
+        $('#closeModal').onclick = () => {$('#comingSoon').classList.remove('show'); location.hash = 'etsy'; render()}; $('#comingSoon').onclick = e => {if (e.target.id === 'comingSoon') {$('#comingSoon').classList.remove('show'); location.hash = 'etsy'; render()} }; window.addEventListener('hashchange', render); render();
+    </script>
+</body>
+
+</html>
