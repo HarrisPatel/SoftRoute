@@ -929,76 +929,90 @@
             .header-right .price {
                 display: none
             }
-
+        
             .product-info h1 {
                 font-size: 42px
             }
-
+        
             .main-image-wrap {
                 min-height: 300px
             }
-
+        
             .main-image {
                 height: 300px;
                 padding: 15px
             }
-
+        
             .thumbs {
                 gap: 6px
             }
-
+        
             .thumb {
                 height: 58px
             }
-
+        
             .trust-row {
                 grid-template-columns: 1fr
             }
-
+        
             .current-price {
-                font-size: 42px
+                font-size: 38px /* Reduced slightly to prevent pushing content out */
             }
-
+        
             .section-title {
                 font-size: 39px;
                 margin-bottom: 30px
             }
-
+        
+            /* Stack price and timer elements cleanly on small screens */
+            .price-row {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 14px;
+            }
+        
             .timer {
+                width: 100%;
                 align-items: flex-start;
                 flex-direction: column;
-                gap: 9px
+                gap: 8px
             }
-
+        
             .timer-label {
                 text-align: left
             }
-
+        
             .timer-units {
                 width: 100%;
-                justify-content: center
+                justify-content: space-between; /* Evenly spaces timer boxes without clipping */
+                padding: 6px 8px;
             }
-
+        
             .timer-unit {
-                min-width: 31px
+                min-width: unset; /* Remove hardcoded min-width */
+                flex: 1;
             }
-
+        
             .timer-unit strong {
                 font-size: 16px
             }
         }
-
-        @media(max-width:390px) {
+        
+        @media(max-width:400px) {
+            .offer-card {
+                padding: 32px 14px 18px; /* Extra top padding so content doesn't hit top-right badge */
+            }
+        
             .price-main {
-                gap: 9px
+                gap: 8px;
             }
-
-            .timer-units {
-                gap: 2px
+        
+            .current-price {
+                font-size: 32px;
             }
-
-            .timer-unit {
-                min-width: 28px
+        
+            .timer-separator {
+                font-size: 12px;
             }
         }
     </style>
