@@ -38,13 +38,10 @@
             --accent-rgb: 241, 100, 30;
             --bg: #0a0a0c;
             --panel: #111217;
-            --panel-card: #14151b;
+            --panel-card: #15161d;
             --muted: #ffffff99;
             --border: #ffffff14;
             --green: #10b981;
-            --green-rgb: 16, 185, 129;
-            --red: #f43f5e;
-            --red-rgb: 244, 63, 94;
         }
 
         * {
@@ -465,97 +462,50 @@
             color: var(--accent);
         }
 
-        /* Redesigned Structured Deliverables */
         .included {
-            padding-top: 26px;
+            padding-top: 24px;
             border-top: 1px solid var(--border);
         }
 
-        .included-header {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            margin-bottom: 18px;
-        }
-
-        .included-header h2 {
+        .included h2 {
+            margin-bottom: 14px;
             font: 900 20px Outfit;
             text-transform: uppercase;
             letter-spacing: -.02em;
         }
 
-        .included-badge {
-            font: 700 10px 'JetBrains Mono';
-            color: var(--accent);
-            letter-spacing: .06em;
-            text-transform: uppercase;
-        }
-
-        .included-list {
+        .included ul {
             display: grid;
             gap: 10px;
+            list-style: none;
         }
 
-        .included-item {
-            display: grid;
-            grid-template-columns: 32px 1fr;
-            align-items: start;
-            gap: 14px;
-            padding: 14px 16px;
-            border: 1px solid rgba(255, 255, 255, 0.07);
-            border-radius: 10px;
-            background: linear-gradient(145deg, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0.01));
-            transition: 0.2s;
+        .included li {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            color: #fffd;
+            font-size: 13px;
+            line-height: 1.45;
         }
 
-        .included-item:hover {
-            border-color: rgba(var(--accent-rgb), 0.35);
-            background: rgba(var(--accent-rgb), 0.03);
-            transform: translateX(2px);
-        }
-
-        .included-icon {
-            width: 32px;
-            height: 32px;
-            border-radius: 8px;
-            background: rgba(var(--green-rgb), 0.12);
-            border: 1px solid rgba(var(--green-rgb), 0.25);
+        .included li svg {
+            width: 15px;
+            height: 15px;
+            flex: none;
+            margin-top: 3px;
             color: var(--green);
-            display: grid;
-            place-items: center;
-            flex-shrink: 0;
-            margin-top: 2px;
         }
 
-        .included-icon svg {
-            width: 16px;
-            height: 16px;
-        }
-
-        .included-text strong {
-            display: block;
-            color: #fff;
-            font: 700 14px Outfit;
-            margin-bottom: 3px;
-            letter-spacing: -0.01em;
-        }
-
-        .included-text p {
-            color: var(--muted);
-            font-size: 12px;
-            line-height: 1.5;
-        }
-
-        /* Below Section Layout */
         .below {
-            padding-top: 100px;
+            padding-top: 90px;
         }
 
         .section-title {
             max-width: 850px;
-            margin: 0 auto 16px;
+            margin: 0 auto 36px;
             text-align: center;
-            font: 900 clamp(32px, 4.8vw, 58px)/0.96 Outfit;
+            font: 900 clamp(32px, 4.5vw, 56px)/1 Outfit;
             letter-spacing: -.05em;
             text-transform: uppercase;
         }
@@ -566,190 +516,159 @@
 
         .section-desc {
             max-width: 600px;
-            margin: 0 auto 50px;
+            margin: -20px auto 44px;
             text-align: center;
             color: var(--muted);
             font-size: 14px;
-            line-height: 1.6;
         }
 
-        /* Refined Editorial Benefit List (How It Works) */
-        .benefit-list {
-            max-width: 1000px;
-            margin: 0 auto 110px;
-            border-top: 1px solid var(--border);
-        }
-
-        .benefit-row {
-            min-height: 140px;
-            padding: 26px 12px;
+        /* Upgraded "How It Works" Cards */
+        .how-grid {
+            max-width: 1100px;
+            margin: 0 auto 80px;
             display: grid;
-            grid-template-columns: 60px 48px 1fr 36px;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 22px;
+        }
+
+        .how-card {
+            background: linear-gradient(160deg, #171822 0%, #0e0f14 100%);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 16px;
+            padding: 30px 24px;
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .how-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(var(--accent-rgb), 0.5);
+            box-shadow: 0 16px 36px rgba(0, 0, 0, 0.45), 0 0 20px rgba(var(--accent-rgb), 0.12);
+        }
+
+        .how-card-top {
+            display: flex;
             align-items: center;
-            gap: 24px;
-            border-bottom: 1px solid var(--border);
-            transition: all 0.3s ease;
+            justify-content: space-between;
+            margin-bottom: 22px;
         }
 
-        .benefit-row:hover {
-            padding-right: 24px;
-            padding-left: 24px;
-            background: linear-gradient(90deg, rgba(var(--accent-rgb), .12), transparent 75%);
-            border-bottom-color: rgba(var(--accent-rgb), 0.3);
-        }
-
-        .benefit-number {
-            color: var(--accent);
-            font: 800 14px 'JetBrains Mono';
-            letter-spacing: .08em;
-        }
-
-        .benefit-icon {
-            width: 46px;
-            height: 46px;
+        .how-icon-wrap {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            background: rgba(var(--accent-rgb), 0.1);
+            border: 1px solid rgba(var(--accent-rgb), 0.25);
             display: grid;
             place-items: center;
-            border: 1px solid rgba(var(--accent-rgb), .4);
-            border-radius: 50%;
-            background: radial-gradient(circle, rgba(var(--accent-rgb), .18), transparent 70%);
             color: var(--accent);
-            box-shadow: 0 0 15px rgba(var(--accent-rgb), 0.15);
         }
 
-        .benefit-icon svg {
+        .how-icon-wrap svg {
             width: 22px;
             height: 22px;
         }
 
-        .benefit-content h3 {
-            margin-bottom: 6px;
+        .how-step-tag {
+            font: 800 11px 'JetBrains Mono';
+            letter-spacing: 0.1em;
+            color: var(--accent);
+            text-transform: uppercase;
+            padding: 4px 10px;
+            border-radius: 20px;
+            background: rgba(var(--accent-rgb), 0.08);
+            border: 1px solid rgba(var(--accent-rgb), 0.2);
+        }
+
+        .how-card h3 {
+            font: 800 20px Outfit;
+            letter-spacing: -0.02em;
+            margin-bottom: 10px;
             color: #fff;
-            font: 800 clamp(19px, 2.2vw, 26px)/1.1 Outfit;
-            letter-spacing: -.03em;
             text-transform: uppercase;
         }
 
-        .benefit-content p {
-            max-width: 650px;
+        .how-card p {
             color: var(--muted);
             font-size: 13.5px;
-            line-height: 1.65;
+            line-height: 1.6;
+            margin-bottom: 18px;
         }
 
-        .benefit-arrow {
+        .how-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font: 700 11px 'JetBrains Mono';
+            color: #ff9d66;
+            letter-spacing: 0.04em;
+            padding-top: 12px;
+            border-top: 1px solid rgba(255, 255, 255, 0.06);
+        }
+
+        .how-badge svg {
+            width: 14px;
+            height: 14px;
             color: var(--accent);
-            font: 24px Outfit;
-            opacity: .6;
-            transition: .3s;
-            text-align: right;
         }
 
-        .benefit-row:hover .benefit-arrow {
-            opacity: 1;
-            transform: translate(4px, -4px);
-        }
-
-        /* High-End Split Audience Cards */
+        /* Audience Grid */
         .audience-grid {
-            max-width: 1000px;
-            margin: 0 auto 110px;
+            max-width: 900px;
+            margin: 0 auto 90px;
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 28px;
+            gap: 24px;
         }
 
         .aud-card {
-            position: relative;
-            overflow: hidden;
-            border-radius: 16px;
-            padding: 34px 30px;
+            background: var(--panel);
             border: 1px solid var(--border);
-            background: #111217;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
-            transition: transform 0.25s ease;
-        }
-
-        .aud-card:hover {
-            transform: translateY(-2px);
+            border-radius: 12px;
+            padding: 28px;
         }
 
         .aud-card.yes {
-            background: radial-gradient(circle at 100% 0%, rgba(var(--green-rgb), 0.12), transparent 50%), #111217;
-            border-color: rgba(var(--green-rgb), 0.35);
+            border-color: rgba(16, 185, 129, 0.3);
         }
 
         .aud-card.no {
-            background: radial-gradient(circle at 100% 0%, rgba(var(--red-rgb), 0.1), transparent 50%), #111217;
-            border-color: rgba(var(--red-rgb), 0.3);
+            border-color: rgba(239, 68, 68, 0.3);
         }
 
-        .aud-header {
+        .aud-card h3 {
+            font: 800 18px Outfit;
+            text-transform: uppercase;
+            margin-bottom: 16px;
             display: flex;
             align-items: center;
-            gap: 12px;
-            margin-bottom: 22px;
-            padding-bottom: 16px;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            gap: 10px;
         }
 
-        .aud-icon-badge {
-            width: 32px;
-            height: 32px;
-            border-radius: 8px;
-            display: grid;
-            place-items: center;
-            font: 900 15px 'JetBrains Mono';
-        }
+        .aud-card.yes h3 { color: #34d399; }
+        .aud-card.no h3 { color: #f87171; }
 
-        .aud-card.yes .aud-icon-badge {
-            background: rgba(var(--green-rgb), 0.16);
-            color: #34d399;
-            border: 1px solid rgba(var(--green-rgb), 0.3);
-        }
-
-        .aud-card.no .aud-icon-badge {
-            background: rgba(var(--red-rgb), 0.16);
-            color: #fb7185;
-            border: 1px solid rgba(var(--red-rgb), 0.3);
-        }
-
-        .aud-header h3 {
-            font: 900 19px Outfit;
-            text-transform: uppercase;
-            letter-spacing: -0.02em;
-        }
-
-        .aud-card.yes .aud-header h3 { color: #34d399; }
-        .aud-card.no .aud-header h3 { color: #fb7185; }
-
-        .aud-list {
+        .aud-card ul {
             list-style: none;
             display: grid;
-            gap: 14px;
+            gap: 10px;
         }
 
-        .aud-list li {
-            display: grid;
-            grid-template-columns: 18px 1fr;
-            align-items: start;
-            gap: 12px;
-            color: #fffd;
-            font-size: 13.5px;
-            line-height: 1.55;
+        .aud-card li {
+            font-size: 13px;
+            color: #fffc;
+            line-height: 1.5;
+            display: flex;
+            gap: 8px;
         }
-
-        .aud-list li svg {
-            width: 16px;
-            height: 16px;
-            margin-top: 3px;
-        }
-
-        .aud-card.yes .aud-list li svg { color: #34d399; }
-        .aud-card.no .aud-list li svg { color: #fb7185; }
 
         /* FAQ */
         .faq {
-            max-width: 840px;
+            max-width: 800px;
             margin: 0 auto;
         }
 
@@ -758,7 +677,7 @@
         }
 
         .faq summary {
-            padding: 20px 0;
+            padding: 18px 0;
             cursor: pointer;
             list-style: none;
             font: 700 16px Outfit;
@@ -772,8 +691,7 @@
             float: right;
             color: var(--accent);
             content: '+';
-            font-size: 22px;
-            line-height: 1;
+            font-size: 20px;
         }
 
         .faq details[open] summary:after {
@@ -781,37 +699,28 @@
         }
 
         .faq p {
-            padding: 0 0 20px;
+            padding: 0 0 18px;
             color: var(--muted);
-            font-size: 13.5px;
-            line-height: 1.7;
+            font-size: 13px;
+            line-height: 1.65;
         }
 
         /* Final CTA */
         .final-cta {
-            max-width: 880px;
-            margin: 120px auto 0;
-            padding: 70px 30px;
+            max-width: 860px;
+            margin: 100px auto 0;
+            padding: 60px 30px;
             position: relative;
-            border-radius: 18px;
+            border-radius: 16px;
             border: 1px solid rgba(var(--accent-rgb), .45);
-            background: radial-gradient(ellipse at 50% 0%, rgba(var(--accent-rgb), .2), transparent 65%), #111217;
+            background: radial-gradient(ellipse at 50% 0%, rgba(var(--accent-rgb), .18), transparent 60%), #111217;
             text-align: center;
         }
 
-        .final-cta-badge {
-            display: inline-block;
-            margin-bottom: 16px;
-            color: var(--accent);
-            font: 800 10px 'JetBrains Mono';
-            letter-spacing: .18em;
-            text-transform: uppercase;
-        }
-
         .final-cta h2 {
-            margin-bottom: 16px;
+            margin-bottom: 14px;
             color: #fff;
-            font: 900 clamp(34px, 4.8vw, 62px)/0.96 Outfit;
+            font: 900 clamp(32px, 4.5vw, 60px)/1 Outfit;
             letter-spacing: -.05em;
             text-transform: uppercase;
         }
@@ -821,30 +730,28 @@
         }
 
         .final-cta p {
-            max-width: 490px;
-            margin: 0 auto 28px;
+            max-width: 480px;
+            margin: 0 auto 24px;
             color: var(--muted);
             font-size: 14px;
-            line-height: 1.6;
         }
 
         .final-cta .primary-cta {
-            max-width: 370px;
+            max-width: 360px;
             margin: auto;
         }
 
         .final-note {
             display: block;
-            margin-top: 16px;
+            margin-top: 14px;
             color: #ffffff77;
             font: 10px 'JetBrains Mono';
-            letter-spacing: .04em;
         }
 
         /* Footer */
         .footer {
             padding: 36px 40px;
-            margin-top: 100px;
+            margin-top: 90px;
             border-top: 1px solid #ffffff14;
             background: #080808;
             color: #fff8;
@@ -928,16 +835,7 @@
             .gallery { position: static; }
             .main-image-wrap { min-height: 340px; }
             .main-image { height: 340px; }
-            
-            .benefit-row {
-                grid-template-columns: 40px 40px 1fr;
-                gap: 14px;
-                padding: 20px 0;
-            }
-            .benefit-arrow { display: none; }
-            .benefit-row:hover { padding: 20px 0; background: transparent; }
-
-            .audience-grid { grid-template-columns: 1fr; gap: 18px; }
+            .how-grid, .audience-grid { grid-template-columns: 1fr; }
             .footer { padding: 28px 20px; }
             .footer-inner, .footer-bottom { flex-direction: column; align-items: flex-start; }
             
@@ -977,7 +875,7 @@
 
     <!-- Highlight Banner -->
     <div class="offer-bar">
-        <span>✦</span> Launch special — $19 for first 100 copies (Regular $47) — instant browser download
+        <span>✦</span> Launch special — $19 for the first 100 buyers (Regular $47) — instant browser download
     </div>
 
     <main class="product-page">
@@ -985,7 +883,7 @@
 
         <!-- Hero Section -->
         <section class="product-grid">
-            <!-- Left: Gallery -->
+            <!-- Left: Visual Product Demo Gallery -->
             <div class="gallery">
                 <div class="main-image-wrap">
                     <button class="gallery-arrow prev" aria-label="Previous image">
@@ -1064,164 +962,124 @@
                     </div>
                 </div>
 
-                <!-- Redesigned High-Alignment Deliverables Section -->
+                <!-- Concrete Product Deliverables -->
                 <div class="included">
-                    <div class="included-header">
-                        <h2>What's Inside Your Download</h2>
-                        <span class="included-badge">All Included</span>
-                    </div>
-
-                    <div class="included-list">
-                        <div class="included-item">
-                            <div class="included-icon">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="m5 12 4 4L19 6"/></svg>
-                            </div>
-                            <div class="included-text">
-                                <strong>Interactive HTML Business Planner</strong>
-                                <p>Runs locally and offline in your web browser with zero subscriptions or third-party tool dependencies.</p>
-                            </div>
-                        </div>
-
-                        <div class="included-item">
-                            <div class="included-icon">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="m5 12 4 4L19 6"/></svg>
-                            </div>
-                            <div class="included-text">
-                                <strong>Day-by-Day Action Missions</strong>
-                                <p>Step-by-step checklists covering niche research, shop setup, product photography, and listing launches.</p>
-                            </div>
-                        </div>
-
-                        <div class="included-item">
-                            <div class="included-icon">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="m5 12 4 4L19 6"/></svg>
-                            </div>
-                            <div class="included-text">
-                                <strong>Finance &amp; Profit Tracker</strong>
-                                <p>Built-in calculator to log expenses, calculate Etsy transaction fees, and monitor exact net profit.</p>
-                            </div>
-                        </div>
-
-                        <div class="included-item">
-                            <div class="included-icon">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="m5 12 4 4L19 6"/></svg>
-                            </div>
-                            <div class="included-text">
-                                <strong>Etsy SEO Prompt Library</strong>
-                                <p>High-converting AI prompts tailored for producing ranking search keywords, titles, and item descriptions.</p>
-                            </div>
-                        </div>
-
-                        <div class="included-item">
-                            <div class="included-icon">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="m5 12 4 4L19 6"/></svg>
-                            </div>
-                            <div class="included-text">
-                                <strong>Quick Start Guide &amp; Backup Guide (PDF)</strong>
-                                <p>Quick reference manual showing how to back up and export your planner progress securely.</p>
-                            </div>
-                        </div>
-                    </div>
+                    <h2>What's Inside Your Download</h2>
+                    <ul>
+                        <li>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m5 12 4 4L19 6"/></svg>
+                            <strong>Interactive HTML Business Planner:</strong> Works offline &amp; directly in your web browser with no monthly software required.
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m5 12 4 4L19 6"/></svg>
+                            <strong>Day-by-Day Action Missions:</strong> Structured tasks covering product research, shop branding, listing, and launch phases.
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m5 12 4 4L19 6"/></svg>
+                            <strong>Built-in Finance &amp; Profit Tracker:</strong> Calculate listing fees, track sales, and monitor net profit in one clean table.
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m5 12 4 4L19 6"/></svg>
+                            <strong>AI Prompt Pack for Etsy SEO:</strong> Plug-and-play prompts to generate high-ranking titles, tags, and product descriptions.
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m5 12 4 4L19 6"/></svg>
+                            <strong>Quick Start Guide (PDF):</strong> Step-by-step guide explaining how to back up your planner and export data smoothly.
+                        </li>
+                    </ul>
                 </div>
             </div>
         </section>
 
-        <!-- Deep Content Section -->
+        <!-- Upgraded "How It Works" Section -->
         <section class="below">
-            <h2 class="section-title">Built To Turn <span>Learning Into Action</span></h2>
-            <p class="section-desc">Stop opening 20 browser tabs with conflicting advice. Follow a proven sequence designed for clarity.</p>
+            <h2 class="section-title">How It <span>Works</span></h2>
+            <p class="section-desc">Stop opening 20 browser tabs with conflicting tutorials. Follow a proven sequence.</p>
             
-            <!-- Restored High-End Editorial Horizontal Benefit Rows -->
-            <div class="benefit-list">
-                <article class="benefit-row">
-                    <div class="benefit-number">01</div>
-                    <div class="benefit-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
-                            <circle cx="12" cy="12" r="8.5" />
-                            <path d="M12 7v5l3.5 2" />
-                        </svg>
+            <div class="how-grid">
+                <!-- Card 1 -->
+                <div class="how-card">
+                    <div>
+                        <div class="how-card-top">
+                            <div class="how-icon-wrap">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
+                                    <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
+                                    <line x1="12" y1="22.08" x2="12" y2="12"></line>
+                                </svg>
+                            </div>
+                            <span class="how-step-tag">Step 01</span>
+                        </div>
+                        <h3>Open In Any Browser</h3>
+                        <p>Download the ZIP file and double-click the HTML planner. It launches offline in Chrome, Safari, or Edge with zero complicated installs or ongoing software fees.</p>
                     </div>
-                    <div class="benefit-content">
-                        <h3>Know Your Next Move</h3>
-                        <p>Replace scattered tutorials with a clear sequence of focused daily missions you complete one step at a time.</p>
+                    <div class="how-badge">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>
+                        Zero Setup · Instant Local Run
                     </div>
-                    <div class="benefit-arrow">↗</div>
-                </article>
-
-                <article class="benefit-row">
-                    <div class="benefit-number">02</div>
-                    <div class="benefit-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
-                            <path d="M4 17 9 12l3 3 7-8" />
-                            <path d="M15 7h4v4" />
-                        </svg>
-                    </div>
-                    <div class="benefit-content">
-                        <h3>Build Consistent Momentum</h3>
-                        <p>Move systematically through product research, SEO optimization, store launch, and growth milestones without getting stuck.</p>
-                    </div>
-                    <div class="benefit-arrow">↗</div>
-                </article>
-
-                <article class="benefit-row">
-                    <div class="benefit-number">03</div>
-                    <div class="benefit-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
-                            <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
-                        </svg>
-                    </div>
-                    <div class="benefit-content">
-                        <h3>Master Your Numbers &amp; Profit</h3>
-                        <p>Use the integrated finance tracker to see your revenue, listing expenses, and actual profits clearly from day one.</p>
-                    </div>
-                    <div class="benefit-arrow">↗</div>
-                </article>
-            </div>
-
-            <!-- Upgraded High-End Comparison Cards -->
-            <h2 class="section-title">Is This <span>Right For You?</span></h2>
-            <p class="section-desc">We believe in transparent expectations. Here is who this execution system was built for.</p>
-
-            <div class="audience-grid">
-                <div class="aud-card yes">
-                    <div class="aud-header">
-                        <div class="aud-icon-badge">✓</div>
-                        <h3>This Is For You If:</h3>
-                    </div>
-                    <ul class="aud-list">
-                        <li>
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="m5 12 4 4L19 6"/></svg>
-                            <span>You are launching an Etsy store (handmade or digital) and need a clear, day-by-day roadmap.</span>
-                        </li>
-                        <li>
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="m5 12 4 4L19 6"/></svg>
-                            <span>You suffer from tutorial overload and want to focus on executing actionable daily missions.</span>
-                        </li>
-                        <li>
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="m5 12 4 4L19 6"/></svg>
-                            <span>You want a private, local organizer to track listings, notes, and revenue without paying monthly SaaS fees.</span>
-                        </li>
-                    </ul>
                 </div>
 
-                <div class="aud-card no">
-                    <div class="aud-header">
-                        <div class="aud-icon-badge">✕</div>
-                        <h3>This Is NOT For You If:</h3>
+                <!-- Card 2 -->
+                <div class="how-card">
+                    <div>
+                        <div class="how-card-top">
+                            <div class="how-icon-wrap">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <polyline points="9 11 12 14 22 4"></polyline>
+                                    <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path>
+                                </svg>
+                            </div>
+                            <span class="how-step-tag">Step 02</span>
+                        </div>
+                        <h3>Execute Daily Missions</h3>
+                        <p>Complete step-by-step assignments for finding validated product niches, writing optimized SEO tags, preparing photos, and publishing listings without feeling overwhelmed.</p>
                     </div>
-                    <ul class="aud-list">
-                        <li>
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M18 6 6 18M6 6l12 12"/></svg>
-                            <span>You expect an automated "magic button" that generates sales without creating quality listings.</span>
-                        </li>
-                        <li>
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M18 6 6 18M6 6l12 12"/></svg>
-                            <span>You are looking for another passive 10-hour video lecture course instead of an execution tool.</span>
-                        </li>
-                        <li>
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M18 6 6 18M6 6l12 12"/></svg>
-                            <span>You already have an established shop consistently generating six-figure annual revenue.</span>
-                        </li>
+                    <div class="how-badge">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>
+                        Clear Daily Checklists &amp; Prompts
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="how-card">
+                    <div>
+                        <div class="how-card-top">
+                            <div class="how-icon-wrap">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <line x1="18" y1="20" x2="18" y2="10"></line>
+                                    <line x1="12" y1="20" x2="12" y2="4"></line>
+                                    <line x1="6" y1="20" x2="6" y2="14"></line>
+                                </svg>
+                            </div>
+                            <span class="how-step-tag">Step 03</span>
+                        </div>
+                        <h3>Track Profit &amp; Momentum</h3>
+                        <p>Record notes, log your Etsy fees and listing revenue in the financial tracker, review milestones, and monitor store progress in one clean dashboard.</p>
+                    </div>
+                    <div class="how-badge">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>
+                        Real-Time Revenue &amp; Cost Logging
+                    </div>
+                </div>
+            </div>
+
+            <!-- Qualification Box -->
+            <h2 class="section-title">Is This <span>Right For You?</span></h2>
+            <div class="audience-grid">
+                <div class="aud-card yes">
+                    <h3>✓ This Is For You If</h3>
+                    <ul>
+                        <li>• You are starting an Etsy store (handmade or digital) and feel paralyzed by what to do next.</li>
+                        <li>• You have watched dozens of courses and tutorials but need a structured system to take action.</li>
+                        <li>• You want to manage your shop's milestones, notes, and revenue without paying monthly software fees.</li>
+                    </ul>
+                </div>
+                <div class="aud-card no">
+                    <h3>✗ This Is NOT For You If</h3>
+                    <ul>
+                        <li>• You are expecting an automated get-rich-quick button without putting in listing work.</li>
+                        <li>• You are looking for a passive 10-hour video lecture course.</li>
+                        <li>• You already run an established store doing six figures in volume.</li>
                     </ul>
                 </div>
             </div>
@@ -1253,7 +1111,6 @@
 
             <!-- Bottom CTA Banner -->
             <div class="final-cta">
-                <span class="final-cta-badge">The Execution System</span>
                 <h2>Build Your Store.<br><span>One Step At A Time.</span></h2>
                 <p>Get instant access to the exact roadmap that eliminates confusion and keeps your Etsy business moving forward every day.</p>
                 <a class="primary-cta checkout lemonsqueezy-button" href="https://softroute.lemonsqueezy.com/checkout/buy/f26d478c-0a47-47e3-a183-89b9ce957b05?embed=1&media=0&desc=0&discount=0">
