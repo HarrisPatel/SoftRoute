@@ -38,10 +38,13 @@
             --accent-rgb: 241, 100, 30;
             --bg: #0a0a0c;
             --panel: #111217;
-            --panel-card: #15161d;
+            --panel-card: #15161e;
             --muted: #ffffff99;
             --border: #ffffff14;
             --green: #10b981;
+            --green-rgb: 16, 185, 129;
+            --red: #ef4444;
+            --red-rgb: 239, 68, 68;
         }
 
         * {
@@ -462,39 +465,87 @@
             color: var(--accent);
         }
 
+        /* Upgraded What's Inside Feature Grid (Right Column) */
         .included {
             padding-top: 24px;
             border-top: 1px solid var(--border);
         }
 
-        .included h2 {
-            margin-bottom: 14px;
+        .included-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 16px;
+        }
+
+        .included-header h2 {
             font: 900 20px Outfit;
             text-transform: uppercase;
             letter-spacing: -.02em;
         }
 
-        .included ul {
+        .included-tag {
+            font: 800 10px 'JetBrains Mono';
+            color: var(--green);
+            background: rgba(var(--green-rgb), 0.1);
+            border: 1px solid rgba(var(--green-rgb), 0.25);
+            padding: 3px 8px;
+            border-radius: 4px;
+            text-transform: uppercase;
+        }
+
+        .deliverable-stack {
             display: grid;
             gap: 10px;
-            list-style: none;
         }
 
-        .included li {
+        .deliverable-item {
+            background: #15161e;
+            border: 1px solid rgba(255, 255, 255, 0.07);
+            border-radius: 10px;
+            padding: 14px 16px;
             display: flex;
             align-items: flex-start;
-            gap: 10px;
-            color: #fffd;
-            font-size: 13px;
-            line-height: 1.45;
+            gap: 14px;
+            transition: 0.2s ease;
         }
 
-        .included li svg {
-            width: 15px;
-            height: 15px;
-            flex: none;
-            margin-top: 3px;
-            color: var(--green);
+        .deliverable-item:hover {
+            border-color: rgba(var(--accent-rgb), 0.35);
+            background: #181924;
+            transform: translateX(2px);
+        }
+
+        .deliverable-icon {
+            width: 32px;
+            height: 32px;
+            border-radius: 8px;
+            background: rgba(var(--accent-rgb), 0.12);
+            border: 1px solid rgba(var(--accent-rgb), 0.25);
+            display: grid;
+            place-items: center;
+            color: var(--accent);
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .deliverable-icon svg {
+            width: 16px;
+            height: 16px;
+        }
+
+        .deliverable-text strong {
+            display: block;
+            color: #fff;
+            font: 700 14px Outfit;
+            letter-spacing: -0.01em;
+            margin-bottom: 2px;
+        }
+
+        .deliverable-text p {
+            color: var(--muted);
+            font-size: 12.5px;
+            line-height: 1.45;
         }
 
         .below {
@@ -616,9 +667,9 @@
             color: var(--accent);
         }
 
-        /* Audience Grid */
+        /* Upgraded "Is This Right For You?" Section */
         .audience-grid {
-            max-width: 900px;
+            max-width: 1040px;
             margin: 0 auto 90px;
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -626,27 +677,65 @@
         }
 
         .aud-card {
-            background: var(--panel);
-            border: 1px solid var(--border);
-            border-radius: 12px;
-            padding: 28px;
+            border-radius: 16px;
+            padding: 34px 28px;
+            background: linear-gradient(160deg, #161720 0%, #0d0e13 100%);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
         }
 
         .aud-card.yes {
-            border-color: rgba(16, 185, 129, 0.3);
+            border-top: 3px solid var(--green);
+            background: radial-gradient(circle at 100% 0%, rgba(var(--green-rgb), 0.08), transparent 45%), linear-gradient(160deg, #14181f 0%, #0c0f14 100%);
         }
 
         .aud-card.no {
-            border-color: rgba(239, 68, 68, 0.3);
+            border-top: 3px solid var(--red);
+            background: radial-gradient(circle at 100% 0%, rgba(var(--red-rgb), 0.08), transparent 45%), linear-gradient(160deg, #1b1417 0%, #100b0e 100%);
+        }
+
+        .aud-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 24px;
+            padding-bottom: 16px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+        }
+
+        .aud-icon-pill {
+            width: 36px;
+            height: 36px;
+            border-radius: 10px;
+            display: grid;
+            place-items: center;
+            flex-shrink: 0;
+        }
+
+        .aud-card.yes .aud-icon-pill {
+            background: rgba(var(--green-rgb), 0.15);
+            color: #34d399;
+            border: 1px solid rgba(var(--green-rgb), 0.3);
+        }
+
+        .aud-card.no .aud-icon-pill {
+            background: rgba(var(--red-rgb), 0.15);
+            color: #f87171;
+            border: 1px solid rgba(var(--red-rgb), 0.3);
+        }
+
+        .aud-icon-pill svg {
+            width: 18px;
+            height: 18px;
         }
 
         .aud-card h3 {
-            font: 800 18px Outfit;
+            font: 900 20px Outfit;
             text-transform: uppercase;
-            margin-bottom: 16px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
+            letter-spacing: -0.02em;
         }
 
         .aud-card.yes h3 { color: #34d399; }
@@ -655,15 +744,41 @@
         .aud-card ul {
             list-style: none;
             display: grid;
-            gap: 10px;
+            gap: 16px;
         }
 
         .aud-card li {
-            font-size: 13px;
-            color: #fffc;
-            line-height: 1.5;
+            font-size: 13.5px;
+            color: #fffd;
+            line-height: 1.55;
             display: flex;
-            gap: 8px;
+            align-items: flex-start;
+            gap: 12px;
+        }
+
+        .bullet-tag {
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            display: grid;
+            place-items: center;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .aud-card.yes .bullet-tag {
+            background: rgba(var(--green-rgb), 0.18);
+            color: #34d399;
+        }
+
+        .aud-card.no .bullet-tag {
+            background: rgba(var(--red-rgb), 0.18);
+            color: #f87171;
+        }
+
+        .bullet-tag svg {
+            width: 11px;
+            height: 11px;
         }
 
         /* FAQ */
@@ -962,31 +1077,79 @@
                     </div>
                 </div>
 
-                <!-- Concrete Product Deliverables -->
+                <!-- Upgraded: What's Inside Feature Card Stack -->
                 <div class="included">
-                    <h2>What's Inside Your Download</h2>
-                    <ul>
-                        <li>
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m5 12 4 4L19 6"/></svg>
-                            <strong>Interactive HTML Business Planner:</strong> Works offline &amp; directly in your web browser with no monthly software required.
-                        </li>
-                        <li>
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m5 12 4 4L19 6"/></svg>
-                            <strong>Day-by-Day Action Missions:</strong> Structured tasks covering product research, shop branding, listing, and launch phases.
-                        </li>
-                        <li>
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m5 12 4 4L19 6"/></svg>
-                            <strong>Built-in Finance &amp; Profit Tracker:</strong> Calculate listing fees, track sales, and monitor net profit in one clean table.
-                        </li>
-                        <li>
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m5 12 4 4L19 6"/></svg>
-                            <strong>AI Prompt Pack for Etsy SEO:</strong> Plug-and-play prompts to generate high-ranking titles, tags, and product descriptions.
-                        </li>
-                        <li>
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m5 12 4 4L19 6"/></svg>
-                            <strong>Quick Start Guide (PDF):</strong> Step-by-step guide explaining how to back up your planner and export data smoothly.
-                        </li>
-                    </ul>
+                    <div class="included-header">
+                        <h2>What's Inside Your Download</h2>
+                        <span class="included-tag">All-In-One Pack</span>
+                    </div>
+
+                    <div class="deliverable-stack">
+                        <div class="deliverable-item">
+                            <div class="deliverable-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                                    <line x1="8" y1="21" x2="16" y2="21"></line>
+                                    <line x1="12" y1="17" x2="12" y2="21"></line>
+                                </svg>
+                            </div>
+                            <div class="deliverable-text">
+                                <strong>Interactive HTML Business Planner</strong>
+                                <p>Runs offline &amp; directly in your browser. Clean task dashboard without requiring subscriptions.</p>
+                            </div>
+                        </div>
+
+                        <div class="deliverable-item">
+                            <div class="deliverable-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <polyline points="9 11 12 14 22 4"></polyline>
+                                    <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path>
+                                </svg>
+                            </div>
+                            <div class="deliverable-text">
+                                <strong>Day-by-Day Action Missions</strong>
+                                <p>Structured milestones covering niche research, shop branding, photo setup, and launch priorities.</p>
+                            </div>
+                        </div>
+
+                        <div class="deliverable-item">
+                            <div class="deliverable-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <line x1="12" y1="1" x2="12" y2="23"></line>
+                                    <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+                                </svg>
+                            </div>
+                            <div class="deliverable-text">
+                                <strong>Built-in Finance &amp; Profit Tracker</strong>
+                                <p>Log Etsy listing fees, calculate margins, and track revenue &amp; net profit in one table.</p>
+                            </div>
+                        </div>
+
+                        <div class="deliverable-item">
+                            <div class="deliverable-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+                                </svg>
+                            </div>
+                            <div class="deliverable-text">
+                                <strong>AI Prompt Pack for Etsy SEO</strong>
+                                <p>Ready-to-use prompts to craft high-conversion titles, tags, and product descriptions in minutes.</p>
+                            </div>
+                        </div>
+
+                        <div class="deliverable-item">
+                            <div class="deliverable-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                                    <polyline points="14 2 14 8 20 8"></polyline>
+                                </svg>
+                            </div>
+                            <div class="deliverable-text">
+                                <strong>Quick Start Guide (PDF)</strong>
+                                <p>Instructions explaining how to open, back up, and export your planner data securely.</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -1063,24 +1226,61 @@
                 </div>
             </div>
 
-            <!-- Qualification Box -->
+            <!-- Upgraded Qualification Box -->
             <h2 class="section-title">Is This <span>Right For You?</span></h2>
+            <p class="section-desc">Be certain before you buy. Here is who this planner is built for.</p>
+
             <div class="audience-grid">
+                <!-- Yes Card -->
                 <div class="aud-card yes">
-                    <h3>✓ This Is For You If</h3>
-                    <ul>
-                        <li>• You are starting an Etsy store (handmade or digital) and feel paralyzed by what to do next.</li>
-                        <li>• You have watched dozens of courses and tutorials but need a structured system to take action.</li>
-                        <li>• You want to manage your shop's milestones, notes, and revenue without paying monthly software fees.</li>
-                    </ul>
+                    <div>
+                        <div class="aud-header">
+                            <div class="aud-icon-pill">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
+                            </div>
+                            <h3>This Is Perfect For You If</h3>
+                        </div>
+                        <ul>
+                            <li>
+                                <span class="bullet-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg></span>
+                                <div><strong>Starting a shop from scratch:</strong> You want a clear step-by-step order of operations for setup and listing.</div>
+                            </li>
+                            <li>
+                                <span class="bullet-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg></span>
+                                <div><strong>Tired of tutorial paralysis:</strong> You have watched dozens of guides and need a structured system to take action.</div>
+                            </li>
+                            <li>
+                                <span class="bullet-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg></span>
+                                <div><strong>Value simple organization:</strong> You want to manage your shop's daily missions and financial tracking without monthly software fees.</div>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
+
+                <!-- No Card -->
                 <div class="aud-card no">
-                    <h3>✗ This Is NOT For You If</h3>
-                    <ul>
-                        <li>• You are expecting an automated get-rich-quick button without putting in listing work.</li>
-                        <li>• You are looking for a passive 10-hour video lecture course.</li>
-                        <li>• You already run an established store doing six figures in volume.</li>
-                    </ul>
+                    <div>
+                        <div class="aud-header">
+                            <div class="aud-icon-pill">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 6L6 18M6 6l12 12"/></svg>
+                            </div>
+                            <h3>This Is NOT For You If</h3>
+                        </div>
+                        <ul>
+                            <li>
+                                <span class="bullet-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M18 6L6 18M6 6l12 12"/></svg></span>
+                                <div><strong>Expecting automated "get-rich" results:</strong> The planner organizes your action, but you must still execute the product listings.</div>
+                            </li>
+                            <li>
+                                <span class="bullet-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M18 6L6 18M6 6l12 12"/></svg></span>
+                                <div><strong>Looking for passive video lectures:</strong> This is a hands-on execution workspace, not a passive 10-hour video course.</div>
+                            </li>
+                            <li>
+                                <span class="bullet-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M18 6L6 18M6 6l12 12"/></svg></span>
+                                <div><strong>Already running an enterprise brand:</strong> If you are already doing six figures on Etsy, this beginner system is not designed for you.</div>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
             </div>
 
