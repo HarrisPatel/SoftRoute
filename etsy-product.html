@@ -1,3 +1,12 @@
+Here is your complete, fully fixed HTML code with the updated requirements:
+
+### What was updated:
+1. **Interactive Demo Button**: Added a frosted **"⚡ Try Live Demo" button directly inside the product preview image** (fixed at the bottom-center with a live pulsing green status dot and glassmorphism styling). [divimode](https://divimode.com/css-glass-buttons/)
+2. **Dedicated Demo Routing**: Clicking the button redirects the user directly to your demo experience (`href="/etsy-demo"` or your custom demo URL, openable in a new tab without interrupting checkout).
+3. **Clean Page Layout**: Removed the separate demo section from the bottom body to keep the core landing page focused on conversions.
+4. **All Previous Features Retained**: 7-day guarantee, instant refund policy popup modal, 3-step "How It Works" cards, deliverable item stack, and GA4 / Meta checkout tracking.
+
+```html
 <!doctype html>
 <html lang="en">
 
@@ -214,7 +223,7 @@
             width: 100%;
             height: 500px;
             object-fit: contain;
-            padding: 20px;
+            padding: 20px 20px 45px;
             transition: .3s;
             cursor: zoom-in;
         }
@@ -246,6 +255,58 @@
         .gallery-arrow svg {
             width: 18px;
             height: 18px;
+        }
+
+        /* Frosted Glass Demo Button Overlaid On Image */
+        .img-demo-btn {
+            position: absolute;
+            bottom: 16px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 10;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 9px 18px;
+            border-radius: 24px;
+            background: rgba(18, 20, 29, 0.75);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.22);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5), 0 0 16px rgba(var(--accent-rgb), 0.25);
+            color: #fff;
+            font: 800 11px 'JetBrains Mono';
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            white-space: nowrap;
+            transition: all 0.25s ease;
+        }
+
+        .img-demo-btn:hover {
+            background: rgba(var(--accent-rgb), 0.22);
+            border-color: rgba(var(--accent-rgb), 0.6);
+            box-shadow: 0 10px 28px rgba(0, 0, 0, 0.6), 0 0 24px rgba(var(--accent-rgb), 0.45);
+            transform: translateX(-50%) translateY(-2px);
+            color: #ff9d66;
+        }
+
+        .demo-live-dot {
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: var(--green);
+            box-shadow: 0 0 8px var(--green);
+            display: inline-block;
+        }
+
+        .img-demo-btn svg {
+            width: 12px;
+            height: 12px;
+            transition: transform 0.2s;
+        }
+
+        .img-demo-btn:hover svg {
+            transform: translateX(2px);
         }
 
         .thumbs {
@@ -485,7 +546,7 @@
             color: var(--accent);
         }
 
-        /* What's Inside Deliverables */
+        /* Deliverable Stack Cards */
         .included {
             padding-top: 24px;
             border-top: 1px solid var(--border);
@@ -593,205 +654,7 @@
             font-size: 14px;
         }
 
-        /* Interactive Try Before Buy Sandbox */
-        .try-container {
-            max-width: 1040px;
-            margin: 0 auto 100px;
-            background: linear-gradient(170deg, #161722 0%, #0c0d12 100%);
-            border: 1px solid rgba(var(--accent-rgb), 0.35);
-            border-radius: 18px;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5), 0 0 30px rgba(var(--accent-rgb), 0.08);
-            overflow: hidden;
-        }
-
-        .try-header {
-            background: #111218;
-            padding: 16px 24px;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            gap: 12px;
-        }
-
-        .try-title {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            font: 800 13px 'JetBrains Mono';
-            letter-spacing: 0.06em;
-            text-transform: uppercase;
-            color: #fff;
-        }
-
-        .pulse-dot {
-            width: 8px;
-            height: 8px;
-            border-radius: 50%;
-            background: var(--green);
-            box-shadow: 0 0 10px var(--green);
-        }
-
-        .try-tabs {
-            display: flex;
-            gap: 8px;
-        }
-
-        .try-tab {
-            padding: 7px 14px;
-            border-radius: 6px;
-            background: rgba(255, 255, 255, 0.05);
-            color: #fff9;
-            font: 700 11px 'JetBrains Mono';
-            border: 1px solid transparent;
-            transition: 0.2s;
-        }
-
-        .try-tab.active {
-            background: rgba(var(--accent-rgb), 0.15);
-            border-color: rgba(var(--accent-rgb), 0.4);
-            color: #ff9d66;
-        }
-
-        .try-body {
-            padding: 30px;
-        }
-
-        .try-panel {
-            display: none;
-        }
-
-        .try-panel.active {
-            display: block;
-        }
-
-        /* Interactive Checklist Simulation */
-        .interactive-checklist {
-            display: grid;
-            gap: 12px;
-            margin-top: 16px;
-        }
-
-        .check-item {
-            background: #111217;
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            border-radius: 10px;
-            padding: 14px 18px;
-            display: flex;
-            align-items: center;
-            gap: 14px;
-            cursor: pointer;
-            transition: 0.2s;
-        }
-
-        .check-item:hover {
-            border-color: rgba(var(--accent-rgb), 0.4);
-        }
-
-        .check-item.completed {
-            border-color: rgba(var(--green-rgb), 0.35);
-            background: rgba(var(--green-rgb), 0.04);
-        }
-
-        .check-box {
-            width: 22px;
-            height: 22px;
-            border-radius: 6px;
-            border: 2px solid rgba(255, 255, 255, 0.2);
-            display: grid;
-            place-items: center;
-            flex-shrink: 0;
-            transition: 0.2s;
-        }
-
-        .check-item.completed .check-box {
-            background: var(--green);
-            border-color: var(--green);
-            color: #000;
-        }
-
-        .check-item.completed .check-label {
-            text-decoration: line-through;
-            color: #fff6;
-        }
-
-        .check-label {
-            font-size: 13.5px;
-            color: #fffd;
-            font-weight: 600;
-        }
-
-        .sim-meta {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-top: 20px;
-            padding-top: 16px;
-            border-top: 1px solid rgba(255, 255, 255, 0.08);
-            font: 11px 'JetBrains Mono';
-            color: #fff7;
-        }
-
-        /* SEO Preview Panel */
-        .seo-box {
-            background: #0f1015;
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            border-radius: 10px;
-            padding: 20px;
-            margin-top: 12px;
-        }
-
-        .seo-tag-wrap {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-            margin-top: 12px;
-        }
-
-        .seo-tag {
-            background: rgba(var(--accent-rgb), 0.12);
-            border: 1px solid rgba(var(--accent-rgb), 0.3);
-            color: #ff9d66;
-            padding: 4px 10px;
-            border-radius: 6px;
-            font: 700 11px 'JetBrains Mono';
-        }
-
-        /* Profit Simulation */
-        .finance-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 16px;
-            margin-top: 16px;
-        }
-
-        .finance-card {
-            background: #111217;
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            border-radius: 10px;
-            padding: 16px;
-            text-align: center;
-        }
-
-        .finance-card span {
-            display: block;
-            color: #fff7;
-            font: 700 10px 'JetBrains Mono';
-            text-transform: uppercase;
-            margin-bottom: 6px;
-        }
-
-        .finance-card strong {
-            font: 800 24px Outfit;
-            color: #fff;
-        }
-
-        .finance-card.profit strong {
-            color: #34d399;
-        }
-
-        /* How It Works Cards */
+        /* How It Works Section */
         .how-grid {
             max-width: 1100px;
             margin: 0 auto 80px;
@@ -885,7 +748,7 @@
             color: var(--accent);
         }
 
-        /* "Is This Right For You?" Section */
+        /* "Is This Right For You?" Comparison */
         .audience-grid {
             max-width: 1040px;
             margin: 0 auto 90px;
@@ -1231,7 +1094,7 @@
             .gallery { position: static; }
             .main-image-wrap { min-height: 340px; }
             .main-image { height: 340px; }
-            .how-grid, .audience-grid, .finance-grid { grid-template-columns: 1fr; }
+            .how-grid, .audience-grid { grid-template-columns: 1fr; }
             .footer { padding: 28px 20px; }
             .footer-inner, .footer-bottom { flex-direction: column; align-items: flex-start; }
             
@@ -1279,7 +1142,7 @@
 
         <!-- Hero Section -->
         <section class="product-grid">
-            <!-- Left: Visual Product Demo Gallery -->
+            <!-- Left: Visual Product Demo Gallery with Floating Demo Link -->
             <div class="gallery">
                 <div class="main-image-wrap">
                     <button class="gallery-arrow prev" aria-label="Previous image">
@@ -1287,15 +1150,29 @@
                             <path d="m15 18-6-6 6-6" />
                         </svg>
                     </button>
+                    
                     <img class="main-image" id="mainImage" src="etsy-images/p1.webp" alt="Etsy Execution Roadmap Dashboard Preview">
+                    
+                    <!-- Fixed Center-Bottom Transparent Demo Button Overlaid On Image -->
+                    <a href="/etsy-demo" target="_blank" rel="noopener noreferrer" class="img-demo-btn" title="Open interactive product demo in a new window">
+                        <span class="demo-live-dot"></span>
+                        <span>⚡ Try Live Demo</span>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                            <polyline points="15 3 21 3 21 9"></polyline>
+                            <line x1="10" y1="14" x2="21" y2="3"></line>
+                        </svg>
+                    </a>
+
                     <button class="gallery-arrow next" aria-label="Next image">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <path d="m9 18 6-6-6-6" />
                         </svg>
                     </button>
                 </div>
+                
                 <div class="thumbs" id="thumbs"></div>
-                <p class="gallery-note">Click to enlarge preview · Delivered as an interactive web planner</p>
+                <p class="gallery-note">Click preview to enlarge · Interactive web planner</p>
             </div>
 
             <!-- Right: Copy & Purchasing Options -->
@@ -1358,7 +1235,7 @@
                     </div>
                 </div>
 
-                <!-- Light Gray Return Policy Trigger -->
+                <!-- Light Gray Return Policy Trigger Link -->
                 <button class="refund-trigger" id="openPolicyModal">Read Return &amp; Refund Policy →</button>
 
                 <!-- What's Inside Feature Card Stack -->
@@ -1438,107 +1315,8 @@
             </div>
         </section>
 
-        <!-- "Try Before You Buy" Interactive Workspace Demo -->
+        <!-- "How It Works" Section -->
         <section class="below">
-            <h2 class="section-title">Try The <span>Planner Live</span></h2>
-            <p class="section-desc">Experience how the interactive roadmap works right inside your browser before downloading.</p>
-
-            <div class="try-container">
-                <div class="try-header">
-                    <div class="try-title">
-                        <span class="pulse-dot"></span> Interactive Sandbox Demo
-                    </div>
-                    <div class="try-tabs">
-                        <button class="try-tab active" data-tab="tab-mission">1. Daily Mission</button>
-                        <button class="try-tab" data-tab="tab-seo">2. AI SEO Pack</button>
-                        <button class="try-tab" data-tab="tab-profit">3. Profit Tracker</button>
-                    </div>
-                </div>
-
-                <div class="try-body">
-                    <!-- Tab 1: Mission Planner -->
-                    <div class="try-panel active" id="tab-mission">
-                        <div style="display:flex; justify-content:space-between; align-items:center;">
-                            <div>
-                                <span style="font: 800 11px 'JetBrains Mono'; color:var(--accent); text-transform:uppercase;">Day 04 Mission</span>
-                                <h4 style="font:800 18px Outfit; margin-top:2px;">Validate High-Demand Digital Product Ideas</h4>
-                            </div>
-                            <span style="font: 700 11px 'JetBrains Mono'; background:#10b98122; color:#34d399; padding:4px 10px; border-radius:6px;">Phase: Research</span>
-                        </div>
-                        
-                        <div class="interactive-checklist">
-                            <div class="check-item completed" onclick="this.classList.toggle('completed')">
-                                <div class="check-box">✓</div>
-                                <div class="check-label">Search top 5 Etsy keyword trends in your specific niche</div>
-                            </div>
-                            <div class="check-item" onclick="this.classList.toggle('completed')">
-                                <div class="check-box">✓</div>
-                                <div class="check-label">Verify competitor listing price points between $8 and $24</div>
-                            </div>
-                            <div class="check-item" onclick="this.classList.toggle('completed')">
-                                <div class="check-box">✓</div>
-                                <div class="check-label">Record chosen 3 focus products in your local planner notes</div>
-                            </div>
-                        </div>
-
-                        <div class="sim-meta">
-                            <span>💡 Interactive preview — click items to test checkbox response</span>
-                            <span>Save Mode: Browser LocalCache</span>
-                        </div>
-                    </div>
-
-                    <!-- Tab 2: AI SEO Prompt Demo -->
-                    <div class="try-panel" id="tab-seo">
-                        <div style="display:flex; justify-content:space-between; align-items:center;">
-                            <div>
-                                <span style="font: 800 11px 'JetBrains Mono'; color:var(--accent); text-transform:uppercase;">Built-In Generator</span>
-                                <h4 style="font:800 18px Outfit; margin-top:2px;">Instant Etsy 13-Tag &amp; Title SEO Formula</h4>
-                            </div>
-                        </div>
-
-                        <div class="seo-box">
-                            <div style="font:700 11px 'JetBrains Mono'; color:#fff7; margin-bottom:8px;">RECOMMENDED TAGS OUTPUT (SAMPLE):</div>
-                            <div class="seo-tag-wrap">
-                                <span class="seo-tag">digital planner</span>
-                                <span class="seo-tag">etsy business plan</span>
-                                <span class="seo-tag">budget spreadsheet</span>
-                                <span class="seo-tag">small business guide</span>
-                                <span class="seo-tag">instant download</span>
-                                <span class="seo-tag">productivity roadmap</span>
-                            </div>
-                        </div>
-                        <p style="font-size:12.5px; color:var(--muted); margin-top:12px;">Pre-loaded prompts generate ranking tags that align with the Etsy search algorithm.</p>
-                    </div>
-
-                    <!-- Tab 3: Profit Simulation -->
-                    <div class="try-panel" id="tab-profit">
-                        <div style="display:flex; justify-content:space-between; align-items:center;">
-                            <div>
-                                <span style="font: 800 11px 'JetBrains Mono'; color:var(--accent); text-transform:uppercase;">Finance Dashboard</span>
-                                <h4 style="font:800 18px Outfit; margin-top:2px;">Automated Net Margin &amp; Fee Ledger</h4>
-                            </div>
-                        </div>
-
-                        <div class="finance-grid">
-                            <div class="finance-card">
-                                <span>Gross Revenue</span>
-                                <strong>$470.00</strong>
-                            </div>
-                            <div class="finance-card">
-                                <span>Etsy Listing Fees</span>
-                                <strong style="color:#f87171;">-$32.80</strong>
-                            </div>
-                            <div class="finance-card profit">
-                                <span>Net Keep Profit</span>
-                                <strong>$437.20</strong>
-                            </div>
-                        </div>
-                        <p style="font-size:12.5px; color:var(--muted); margin-top:14px;">Calculates listing transaction costs and net payout figures inside your workspace.</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- "How It Works" Section -->
             <h2 class="section-title">How It <span>Works</span></h2>
             <p class="section-desc">Stop opening 20 browser tabs with conflicting tutorials. Follow a proven sequence.</p>
             
@@ -1789,8 +1567,15 @@
             thumbs.appendChild(btn);
         });
 
-        document.querySelector('.prev').onclick = () => setImage(current - 1);
-        document.querySelector('.next').onclick = () => setImage(current + 1);
+        document.querySelector('.prev').onclick = (e) => {
+            e.stopPropagation();
+            setImage(current - 1);
+        };
+        
+        document.querySelector('.next').onclick = (e) => {
+            e.stopPropagation();
+            setImage(current + 1);
+        };
 
         main.onclick = () => {
             lightboxImg.src = main.src;
@@ -1824,17 +1609,6 @@
             if(e.target === policyModal) hidePolicy();
         };
 
-        // Try Before You Buy Tab Switching
-        document.querySelectorAll('.try-tab').forEach(tab => {
-            tab.addEventListener('click', () => {
-                document.querySelectorAll('.try-tab').forEach(t => t.classList.remove('active'));
-                document.querySelectorAll('.try-panel').forEach(p => p.classList.remove('active'));
-                tab.classList.add('active');
-                const targetId = tab.getAttribute('data-tab');
-                document.getElementById(targetId).classList.add('active');
-            });
-        });
-
         // Analytics Tracking for Ad Optimizations
         document.querySelectorAll('.checkout').forEach(function(btn) {
             btn.addEventListener('click', function() {
@@ -1865,3 +1639,4 @@
     </script>
 </body>
 </html>
+```
