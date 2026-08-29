@@ -1,16 +1,13 @@
-<!doctype html>
-<html lang="en">
-
-<head>
+<html lang="en" style="--accent: #f1641e; --accent-rgb: 241,100,30;"><head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Soft Route</title>
+    <title>Soft Route — Etsy Mission</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
     <link rel="icon" type="image/svg+xml" href="SOFT.png">
 
     <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-03Z3ZJNVYC"></script>
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-03Z3ZJNVYC"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
@@ -19,9 +16,7 @@
   gtag('config', 'G-03Z3ZJNVYC');
 </script>
     
-    <link
-        href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700;800&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=JetBrains+Mono:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
     <style>
                 :root {
             --accent: #f1641e;
@@ -583,36 +578,32 @@
     <header class="header">
         <div class="header-inner">
             <div class="logo">Soft<span>Route</span></div>
-            <div class="header-right"><span>Personalized Roadmaps</span><span class="price">One-Time </span><span>Execution First</span></div>
+            <div class="header-right"><span>Personalized Roadmaps</span><span class="price">One-Time <strong class="price-value">$19</strong></span><span>Execution First</span><a class="buy-button buy-link" href="etsy-product">Buy $19</a></div>
         </div>
     </header>
     <main class="container">
         <section class="hero">
             <div>
-                <h1><span class="heading-line-1"></span><br><span class="heading-line-2"></span><br><span
-                        class="accent-text accent-heading-1"></span><br><span
-                        class="accent-text accent-heading-2"></span></h1>
-                <p class="intro intro-text"></p>
+                <h1><span class="heading-line-1">Started Etsy,</span><br><span class="heading-line-2">Then Lost Momentum?</span><br><span class="accent-text accent-heading-1">Turn Your Goal Into</span><br><span class="accent-text accent-heading-2">Daily Action.</span></h1>
+                <p class="intro intro-text">A personalized day roadmap that tells you exactly what to work on next, from product research to launching and growing your store.</p>
             </div>
             <div class="platform-wrapper">
-                <div class="platforms" id="platforms"></div>
+                <div class="platforms" id="platforms"><button class="platform active" data-product="etsy">Etsy</button><button class="platform " data-product="amazon">Amazon</button><button class="platform " data-product="fiverr">Fiverr</button><button class="platform " data-product="shopify">Shopify</button><button class="platform " data-product="ebay">eBay</button></div>
             </div>
         </section>
         <section class="content">
             <div class="mission-info">
                 <div>
-                    <h2 class="mission-title"><span class="title-text"></span><span class="weeks-text">(30–180 Day
+                    <h2 class="mission-title"><span class="title-text">Etsy Mission Sprint</span><span class="weeks-text">(30–180 Day
                             Roadmap)</span></h2>
-                    <div class="steps" id="steps"></div>
-                    <p class="description description-text"></p>
+                    <div class="steps" id="steps"><div class="step"><span class="step-icon">◈</span><div><strong>ASSESS</strong><span> — Tell us where you are and where you want to go.</span></div></div><div class="step"><span class="step-icon">◇</span><div><strong>PLAN</strong><span> — Get a roadmap built around your goals and timeline.</span></div></div><div class="step"><span class="step-icon">◆</span><div><strong>EXECUTE</strong><span> — Complete one focused mission at a time.</span></div></div><div class="step"><span class="step-icon">◎</span><div><strong>TRACK</strong><span> — See your progress, money, and momentum in one place.</span></div></div></div>
+                    <p class="description description-text">No more jumping between tutorials. No more wondering what comes next. Just your next move, every day.</p>
                 </div>
-                <div class="launch-area"><a class="launch-button launch-link" href="#"><span>Claim My 72% Off Now →</span></a>
-                    <div class="trust">You will receive an instant Zip <br> after your purchase.</span></div>
+                <div class="launch-area"><a class="launch-button launch-link" href="etsy-product"><span>Get It For $19 →</span></a>
+                    <div class="trust">You will receive an instant Zip <br> after your purchase.</div>
                 </div>
             </div>
-            
-            <div class="dashboard-image"><img id="dashboardImage" src="dashboard-etsy.webp"
-                    alt="Mission dashboard preview"></div>
+            <div class="dashboard-image"><img id="dashboardImage" src="mockup-image.webp" alt="Etsy mission dashboard preview"></div>
         </section>
     </main>
         <footer class="footer">
@@ -631,7 +622,7 @@
             </div>
             <nav class="footer-links">
                 <a class="launch-link" href="etsy-product">Buy Planner</a>
-                <a href="https://mail.google.com/mail/?view=cm&fs=1&to=softroute.online@gmail.com"    target="_blank">Support</a>
+                <a href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=softroute.online@gmail.com" target="_blank">Support</a>
                 <a href="#" id="openPolicyModalFooter">Refund Policy</a>
             </nav>
         </div>
@@ -661,6 +652,7 @@
             document.title = 'Soft Route — '+ p.name + ' Mission'; $('.heading-line-1').textContent = p.heading[0]; $('.heading-line-2').textContent = p.heading[1]; $('.accent-heading-1').textContent = p.accent[0]; $('.accent-heading-2').textContent = p.accent[1]; $('.intro-text').textContent = p.description; $('.title-text').textContent = p.name + ' Mission Sprint'; $('.description-text').textContent = "No more jumping between tutorials. No more wondering what comes next. Just your next move, every day."; $('.buy-link').href = p.buyUrl || '#'; $('.launch-link').href = p.buyUrl || '#'; $('#dashboardImage').src = p.dashboard || 'dashboard.webp'; $('#dashboardImage').alt = p.name + ' mission dashboard preview'; $('#platforms').innerHTML = Object.keys(products).map(x => '<button class="platform ' + (x === k ? 'active' : '') + '" data-product="' + x + '">' + products[x].name + '</button>').join(''); $('#steps').innerHTML = (p.steps || []).map((x, i) => '<div class="step"><span class="step-icon">' + ['◈', '◇', '◆', '◎'][i] + '</span><div><strong>' + x[0] + '</strong><span> — ' + x[1] + '</span></div></div>').join(''); document.querySelectorAll('.platform').forEach(b => b.onclick = () => {let q = products[b.dataset.product]; if (q.comingSoon) {document.documentElement.style.setProperty('--accent', q.color); document.documentElement.style.setProperty('--accent-rgb', q.rgb); $('#soonProduct').textContent = q.name; $('#comingSoon').classList.add('show')} else {location.hash = b.dataset.product; render()} })}
         $('#closeModal').onclick = () => {$('#comingSoon').classList.remove('show'); location.hash = 'etsy'; render()}; $('#comingSoon').onclick = e => {if (e.target.id === 'comingSoon') {$('#comingSoon').classList.remove('show'); location.hash = 'etsy'; render()} }; window.addEventListener('hashchange', render); render();
     </script>
-</body>
 
-</html>
+
+
+</body></html>
