@@ -956,7 +956,37 @@
             font: 800 18px Outfit;
             text-transform: uppercase;
         }
+        .footer-trust {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 14px;
+            padding: 8px 12px;
+            border: 1px solid rgba(var(--green-rgb), .25);
+            border-radius: 6px;
+            background: rgba(var(--green-rgb), .07);
+            color: #ffffffaa;
+            font: 10px 'JetBrains Mono';
+            letter-spacing: .04em;
+        }
 
+        .footer-trust svg {
+            width: 15px;
+            height: 15px;
+            color: var(--green);
+            flex-shrink: 0;
+        }
+
+        .footer-trust strong {
+            color: #34d399;
+            font-weight: 700;
+        }
+
+        @media(max-width:900px) {
+            .footer-trust {
+                margin-top: 12px;
+            }
+        }
         .footer-links {
             display: flex;
             flex-wrap: wrap;
@@ -1454,11 +1484,11 @@
                 </details>
                 <details>
                     <summary>What if I get stuck or have questions?</summary>
-                    <p>We are here to help. You can email us directly at <strong>support@softroute.online</strong> with your order receipt, and we will assist you with any questions about opening or using your planner.</p>
+                    <p>We are here to help. You can email us directly at <strong>softroute.online@gmail.com</strong> with your order receipt, and we will assist you with any questions about opening or using your planner.</p>
                 </details>
                 <details>
                     <summary>What is your 7-day refund policy?</summary>
-                    <p>Because Soft Route provides immediate access to digital content, all purchases are generally final once delivered. If you experience a technical problem or access issue, contact us within 7 days at <strong>support@softroute.online</strong> and we will resolve it promptly.</p>
+                    <p>Because Soft Route provides immediate access to digital content, all purchases are generally final once delivered. If you experience a technical problem or access issue, contact us within 7 days at <strong>softroute.online@gmail</strong> and we will resolve it promptly.</p>
                 </details>
             </div>
 
@@ -1480,19 +1510,27 @@
     <!-- Footer -->
     <footer class="footer">
         <div class="footer-inner">
-            <div>
+                        <div>
                 <div class="footer-brand">Soft<span>Route</span></div>
                 <p style="color: #fff6; font-size: 12px; margin-top: 6px;">Practical execution tools and roadmaps for digital entrepreneurs.</p>
+
+                <div class="footer-trust" aria-label="Secure checkout powered by Lemon Squeezy">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="3" y="10" width="18" height="11" rx="2"></rect>
+                        <path d="M7 10V7a5 5 0 0 1 10 0v3"></path>
+                    </svg>
+                    <span><strong>Secure checkout</strong> powered by Lemon Squeezy</span>
+                </div>
             </div>
             <nav class="footer-links">
                 <a href="#buy">Buy Planner</a>
-                <a href="mailto:support@softroute.online">Support</a>
+                <a href="mailto:softroute.online@gmail.com">Support</a>
                 <a href="#" id="openPolicyModalFooter">Refund Policy</a>
             </nav>
         </div>
         <div class="footer-bottom">
             <span>© 2026 Soft Route. All rights reserved.</span>
-            <span>support@softroute.online</span>
+            <span>softroute.online@gmail.com</span>
         </div>
     </footer>
 
@@ -1500,7 +1538,7 @@
     <div class="policy-modal" id="policyModal">
         <div class="policy-card">
             <h3>Digital Product Refund Policy</h3>
-            <p>Because Soft Route provides immediate access to digital content, all purchases are generally final once access has been delivered. If you experience a technical problem, receive duplicate access, or cannot access the product, contact us within 7 days at <a href="mailto:support@softroute.online">support@softroute.online</a> and we will help resolve the issue. Refunds may be considered for genuine technical or delivery problems on a case-by-case basis.</p>
+            <p>Because Soft Route provides immediate access to digital content, all purchases are generally final once access has been delivered. If you experience a technical problem, receive duplicate access, or cannot access the product, contact us within 7 days at <a href="mailto:softroute.online@gmail.com">softroute.online@gmail.com</a> and we will help resolve the issue. Refunds may be considered for genuine technical or delivery problems on a case-by-case basis.</p>
             <button class="close-policy-btn" id="closePolicyBtn">I Understand &amp; Close</button>
         </div>
     </div>
