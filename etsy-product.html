@@ -1,3 +1,6 @@
+Here is the complete, production-ready code with all professional performance enhancements built in: high-priority preloading for the hero image, async decoding, shimmer skeleton placeholders, non-blocking background script loading, intelligent thumbnail lazy-loading, and idle background caching for seamless slide transitions. [ppl-ai-file-upload.s3.amazonaws](https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/attachments/2164627735/5748c16b-e36f-4cf2-8c38-0f6e3c488414/paste.txt?AWSAccessKeyId=ASIA2F3EMEYEUF7D4TKL&Signature=AeIdfrZkItHfY%2FVzzhqwVV1kHUU%3D&x-amz-security-token=IQoJb3JpZ2luX2VjEKH%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEaCXVzLWVhc3QtMSJHMEUCIQCCxPd5amS6JaXM1CZExhbHISWFKyvJS6r7Ok95xOmBzAIgcFcTPNGQeb4pzNWSwJVBeT8ADH7QvpHSvSQmovzOkycq8wQIahABGgw2OTk3NTMzMDk3MDUiDONpMF8GQcXV7D3KvCrQBJdTl46qmqPpLPZJ3xt8TIITDT69dnq8sz2QJUZ4pMEti7nnWefI2w7zFOTymOLdFR%2B7NVzPdCaTVCYaJsAdGrQCYIgjlMgp5k3LQj8SYZRND5er0wSqtAqpB86tTu24i5LWCuphB%2Fz0mOyXUzQylpOOPu18Xfv58Kx9Npvgee4Dv0Rrx14NJmoQeJRrFcc8nualWWi6wKRR2jlYU4QofqByPR3gL1GNTmE8EqKxtfPcOpAmMLid0tQN3NSgFQLPX4mlGylEXFYKkj3FdufcBdSoie8bWWxF%2F9hZ8AN7xGB1WonaCeckTR0bKn37h5cJHYvMaS5XZ%2FVscldhWVdwNC0xYMigWJFYadp%2Bi3zp2nH2o7KhQeyfYZykmIjzNWH8KdYKAwIwjpqsFIKusaXatvBfkCkuvctGR9ov7UiQ1eRA5A6ls0qBtPkWQ%2FfLbGEVUMNT7QUQPTAJXtymAw7L%2FocaC9Pr8%2F85jFMYDqnxSRm198qIEVErIuZqsKGBAw1GRB%2BpN91fdyCwsAcOf8OrxGs25TidtW21hShRa4SjoPUFR15aQA2G5YedmrwV1Ivyvyc321lb%2BsgQZprdoEo3ipNyZvLYl3%2FMPe0QjSJYGLixQVI6M8ROuy8kmWQcHPjv%2BlayKAV0UnCcXkW9aj8zdL2pDCrnay8M0UONjm7UCaFPxuTawNz74Q4RsTtO7VZh9k7%2FlOTrIfRsEcAOzu4XXY%2FZmNIysDNcJ1fOVIIsxa%2BpEOqQB5X5Mj7eytwZEzqwGZZIVBJz3izIAOmGpNVKSzQw3ZXM1AY6mAFtYFVBrxi5P0MjSOBYHbgsbAT1jNr0kpqrK0Wbzsxi9ay2ZjF6I7j923t36MQLTQ6dT7a0JkSqQA09FUBNWRLlaAkEpgHyEWohysQgCBrUG5K%2BPErsPQTrHB6esE30G7rlEhbrXb8eYLkUJM%2B1h8VD1iFatTMA33Rqsz90yAqkRT96DRitweYB10q5PWO9pql%2FZu5BwM%2FO6g%3D%3D&Expires=1788025008)
+
+```html
 <!doctype html>
 <html lang="en">
 
@@ -13,14 +16,18 @@
     <meta property="og:type" content="product">
     <meta property="og:url" content="https://www.softroute.online/etsy-product">
 
+    <!-- High-Priority Resource Hints -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="icon" type="image/png" href="SOFT.png">
     
-    <!-- Lemon Squeezy Overlay Script -->
-    <script src="https://assets.lemonsqueezy.com/lemon.js" defer></script>
+    <!-- Instant Preload of First Critical Hero Image -->
+    <link rel="preload" as="image" href="etsy-images/p1.webp" fetchpriority="high">
+    <link rel="icon" type="image/png" href="SOFT.png">
 
-    <!-- Google tag (gtag.js) -->
+    <!-- Optimized Font Loading -->
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@700;800;900&family=Outfit:wght@700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Google Analytics (Asynchronous) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-03Z3ZJNVYC"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
@@ -28,9 +35,6 @@
         gtag('js', new Date());
         gtag('config', 'G-03Z3ZJNVYC');
     </script>
-
-    <!-- Typography -->
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
     <style>
         :root {
@@ -87,6 +91,7 @@
             top: 0;
             background: #0a0a0ce8;
             backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
             z-index: 40;
         }
 
@@ -197,10 +202,13 @@
             top: 80px;
         }
 
+        /* Responsive Skeleton Shimmer Gallery Wrapper */
         .main-image-wrap {
             position: relative;
             overflow: hidden;
-            min-height: 500px;
+            width: 100%;
+            aspect-ratio: 16 / 11;
+            min-height: 440px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -210,19 +218,48 @@
             box-shadow: 0 25px 70px #0007;
         }
 
+        .main-image-wrap::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(110deg, rgba(255,255,255,0) 20%, rgba(255,255,255,0.04) 50%, rgba(255,255,255,0) 80%);
+            background-size: 200% 100%;
+            animation: imageShimmer 1.8s infinite;
+            pointer-events: none;
+            opacity: 1;
+            transition: opacity 0.4s ease;
+            z-index: 1;
+        }
+
+        .main-image-wrap.loaded::before {
+            opacity: 0;
+        }
+
+        @keyframes imageShimmer {
+            0% { background-position-x: 200%; }
+            100% { background-position-x: -200%; }
+        }
+
         .main-image {
             width: 100%;
-            height: 500px;
+            height: 100%;
             object-fit: contain;
-            padding: 20px 20px 45px;
-            transition: .3s;
+            padding: 20px 20px 48px;
+            transition: opacity 0.25s ease, transform 0.25s ease;
             cursor: zoom-in;
+            opacity: 0;
+            position: relative;
+            z-index: 2;
+        }
+
+        .main-image.ready {
+            opacity: 1;
         }
 
         .gallery-arrow {
             position: absolute;
             top: 50%;
-            z-index: 2;
+            z-index: 5;
             width: 42px;
             height: 42px;
             border: 1px solid #ffffff1f;
@@ -232,7 +269,7 @@
             display: grid;
             place-items: center;
             transform: translateY(-50%);
-            transition: .2s;
+            transition: 0.2s;
         }
 
         .gallery-arrow:hover {
@@ -248,7 +285,7 @@
             height: 18px;
         }
 
-        /* Frosted Glass Demo Button Overlaid On Image */
+        /* Glassmorphism Demo Button */
         .img-demo-btn {
             position: absolute;
             bottom: 16px;
@@ -314,7 +351,8 @@
             border-radius: 8px;
             background: #111217;
             opacity: .55;
-            transition: .2s;
+            transition: 0.2s;
+            padding: 0;
         }
 
         .thumb:hover,
@@ -328,6 +366,7 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
+            display: block;
         }
 
         .gallery-note {
@@ -538,7 +577,6 @@
             color: var(--accent);
         }
 
-        /* Deliverable Stack Cards */
         .included {
             padding-top: 24px;
             border-top: 1px solid var(--border);
@@ -646,7 +684,6 @@
             font-size: 14px;
         }
 
-        /* How It Works Section */
         .how-grid {
             max-width: 1100px;
             margin: 0 auto 80px;
@@ -740,7 +777,6 @@
             color: var(--accent);
         }
 
-        /* "Is This Right For You?" Comparison */
         .audience-grid {
             max-width: 1040px;
             margin: 0 auto 90px;
@@ -854,7 +890,6 @@
             height: 11px;
         }
 
-        /* FAQ */
         .faq {
             max-width: 800px;
             margin: 0 auto;
@@ -893,7 +928,6 @@
             line-height: 1.65;
         }
 
-        /* Final CTA */
         .final-cta {
             max-width: 860px;
             margin: 100px auto 0;
@@ -936,7 +970,6 @@
             font: 10px 'JetBrains Mono';
         }
 
-        /* Footer */
         .footer {
             padding: 36px 40px;
             margin-top: 90px;
@@ -956,6 +989,7 @@
             font: 800 18px Outfit;
             text-transform: uppercase;
         }
+        
         .footer-trust {
             display: inline-flex;
             align-items: center;
@@ -982,11 +1016,6 @@
             font-weight: 700;
         }
 
-        @media(max-width:900px) {
-            .footer-trust {
-                margin-top: 12px;
-            }
-        }
         .footer-links {
             display: flex;
             flex-wrap: wrap;
@@ -1007,7 +1036,6 @@
             font: 10px 'JetBrains Mono';
         }
 
-        /* Refund Policy Modal Popup */
         .policy-modal {
             position: fixed;
             inset: 0;
@@ -1018,6 +1046,7 @@
             padding: 20px;
             background: rgba(0, 0, 0, 0.85);
             backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
         }
 
         .policy-modal.show {
@@ -1070,7 +1099,6 @@
             background: var(--accent);
         }
 
-        /* Lightbox */
         .lightbox {
             position: fixed;
             inset: 0;
@@ -1114,11 +1142,12 @@
             .product-page { padding: 24px 20px 50px; }
             .product-grid { grid-template-columns: 1fr; gap: 30px; }
             .gallery { position: static; }
-            .main-image-wrap { min-height: 340px; }
-            .main-image { height: 340px; }
+            .main-image-wrap { min-height: 320px; aspect-ratio: 16 / 10; }
+            .main-image { padding: 16px 16px 44px; }
             .how-grid, .audience-grid { grid-template-columns: 1fr; }
             .footer { padding: 28px 20px; }
             .footer-inner, .footer-bottom { flex-direction: column; align-items: flex-start; }
+            .footer-trust { margin-top: 12px; }
             
             .mobile-buy {
                 position: fixed;
@@ -1131,6 +1160,7 @@
                 background: #080808f0;
                 border-top: 1px solid #ffffff20;
                 backdrop-filter: blur(10px);
+                -webkit-backdrop-filter: blur(10px);
             }
 
             .mobile-buy .primary-cta {
@@ -1164,18 +1194,26 @@
 
         <!-- Hero Section -->
         <section class="product-grid">
-            <!-- Left: Visual Product Demo Gallery with Floating Demo Link -->
+            <!-- Left: Visual Product Demo Gallery -->
             <div class="gallery">
-                <div class="main-image-wrap">
+                <div class="main-image-wrap" id="mainWrap">
                     <button class="gallery-arrow prev" aria-label="Previous image">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <path d="m15 18-6-6 6-6" />
                         </svg>
                     </button>
                     
-                    <img class="main-image" id="mainImage" src="etsy-images/p1.webp" alt="Etsy Execution Roadmap Dashboard Preview">
+                    <!-- Fast First Frame Image with High Fetchpriority & Async Decoding -->
+                    <img class="main-image" 
+                         id="mainImage" 
+                         src="etsy-images/p1.webp" 
+                         alt="Etsy Execution Roadmap Dashboard Preview" 
+                         width="800" 
+                         height="500" 
+                         fetchpriority="high" 
+                         decoding="async">
                     
-                    <!-- Fixed Center-Bottom Transparent Demo Button Overlaid On Image -->
+                    <!-- Glassmorphic Demo Overlay Button -->
                     <a href="/etsy-demo" target="_blank" rel="noopener noreferrer" class="img-demo-btn" title="Open interactive product demo in a new window">
                         <span class="demo-live-dot"></span>
                         <span>Try Live Demo</span>
@@ -1257,10 +1295,10 @@
                     </div>
                 </div>
 
-                <!-- Light Gray Return Policy Trigger Link -->
+                <!-- Return Policy Link -->
                 <button class="refund-trigger" id="openPolicyModal">Read Return &amp; Refund Policy →</button>
 
-                <!-- What's Inside Feature Card Stack -->
+                <!-- Feature Deliverables -->
                 <div class="included">
                     <div class="included-header">
                         <h2>What's Inside Your Download</h2>
@@ -1488,7 +1526,7 @@
                 </details>
                 <details>
                     <summary>What is your 7-day refund policy?</summary>
-                    <p>Because Soft Route provides immediate access to digital content, all purchases are generally final once delivered. If you experience a technical problem or access issue, contact us within 7 days at <strong>softroute.online@gmail</strong> and we will resolve it promptly.</p>
+                    <p>Because Soft Route provides immediate access to digital content, all purchases are generally final once delivered. If you experience a technical problem or access issue, contact us within 7 days at <strong>softroute.online@gmail.com</strong> and we will resolve it promptly.</p>
                 </details>
             </div>
 
@@ -1510,7 +1548,7 @@
     <!-- Footer -->
     <footer class="footer">
         <div class="footer-inner">
-                        <div>
+            <div>
                 <div class="footer-brand">Soft<span>Route</span></div>
                 <p style="color: #fff6; font-size: 12px; margin-top: 6px;">Practical execution tools and roadmaps for digital entrepreneurs.</p>
 
@@ -1524,7 +1562,7 @@
             </div>
             <nav class="footer-links">
                 <a href="#buy">Buy Planner</a>
-                <a href="https://mail.google.com/mail/?view=cm&fs=1&to=softroute.online@gmail.com"    target="_blank">Support</a>
+                <a href="https://mail.google.com/mail/?view=cm&fs=1&to=softroute.online@gmail.com" target="_blank">Support</a>
                 <a href="#" id="openPolicyModalFooter">Refund Policy</a>
             </nav>
         </div>
@@ -1538,7 +1576,7 @@
     <div class="policy-modal" id="policyModal">
         <div class="policy-card">
             <h3>Digital Product Refund Policy</h3>
-            <p>Because Soft Route provides immediate access to digital content, all purchases are generally final once access has been delivered. If you experience a technical problem, receive duplicate access, or cannot access the product, contact us within 7 days at <a href="https://mail.google.com/mail/?view=cm&fs=1&to=softroute.online@gmail.com"    target="_blank">softroute.online@gmail.com</a> and we will help resolve the issue. Refunds may be considered for genuine technical or delivery problems on a case-by-case basis.</p>
+            <p>Because Soft Route provides immediate access to digital content, all purchases are generally final once access has been delivered. If you experience a technical problem, receive duplicate access, or cannot access the product, contact us within 7 days at <a href="https://mail.google.com/mail/?view=cm&fs=1&to=softroute.online@gmail.com" target="_blank">softroute.online@gmail.com</a> and we will help resolve the issue. Refunds may be considered for genuine technical or delivery problems on a case-by-case basis.</p>
             <button class="close-policy-btn" id="closePolicyBtn">I Understand &amp; Close</button>
         </div>
     </div>
@@ -1563,9 +1601,8 @@
         </a>
     </div>
 
-    <!-- Interactive Scripts -->
+    <!-- Interactive Performance Scripts -->
     <script>
-        // Gallery Navigation & Lightbox
         const images = [
             'etsy-images/p1.webp',
             'etsy-images/p2.webp',
@@ -1577,22 +1614,59 @@
         
         let current = 0;
         const main = document.getElementById('mainImage');
+        const mainWrap = document.getElementById('mainWrap');
         const thumbs = document.getElementById('thumbs');
         const lightbox = document.getElementById('lightbox');
         const lightboxImg = document.getElementById('lightboxImage');
 
+        // Handle Image Ready state
+        function markImageLoaded() {
+            mainWrap.classList.add('loaded');
+            main.classList.add('ready');
+        }
+
+        if (main.complete && main.naturalWidth > 0) {
+            markImageLoaded();
+        } else {
+            main.addEventListener('load', markImageLoaded);
+        }
+
+        // Change Slide
         function setImage(i) {
             current = (i + images.length) % images.length;
-            main.src = images[current];
+            main.classList.remove('ready');
+            
+            const nextImg = new Image();
+            nextImg.src = images[current];
+            nextImg.onload = () => {
+                main.src = images[current];
+                main.classList.add('ready');
+            };
+            
             document.querySelectorAll('.thumb').forEach((el, index) => {
                 el.classList.toggle('active', index === current);
             });
         }
 
+        // Build Optimized Thumbnails
         images.forEach((src, i) => {
             const btn = document.createElement('button');
             btn.className = 'thumb' + (i === 0 ? ' active' : '');
-            btn.innerHTML = `<img src="${src}" alt="Etsy roadmap screenshot preview ${i + 1}">`;
+            btn.setAttribute('aria-label', `Show screenshot ${i + 1}`);
+
+            const img = document.createElement('img');
+            img.src = src;
+            img.alt = `Etsy roadmap preview ${i + 1}`;
+            img.width = 120;
+            img.height = 70;
+            img.decoding = 'async';
+
+            // Lazy-load all thumbnails except the first
+            if (i > 0) {
+                img.loading = 'lazy';
+            }
+
+            btn.appendChild(img);
             btn.onclick = () => setImage(i);
             thumbs.appendChild(btn);
         });
@@ -1607,6 +1681,7 @@
             setImage(current + 1);
         };
 
+        // Lightbox Handler
         main.onclick = () => {
             lightboxImg.src = main.src;
             lightbox.classList.add('show');
@@ -1617,7 +1692,29 @@
             if (e.target.id === 'lightbox') lightbox.classList.remove('show');
         };
 
-        // Refund Policy Modal Logic
+        // Preload Remaining Slides in Idle Background (Zero Render Blocking)
+        window.addEventListener('load', () => {
+            const preloadGalleryImages = () => {
+                images.slice(1).forEach(src => {
+                    const img = new Image();
+                    img.src = src;
+                });
+            };
+
+            if ('requestIdleCallback' in window) {
+                requestIdleCallback(preloadGalleryImages);
+            } else {
+                setTimeout(preloadGalleryImages, 1200);
+            }
+
+            // Load Lemon Squeezy payment script asynchronously without locking initial paint
+            const ls = document.createElement('script');
+            ls.src = 'https://assets.lemonsqueezy.com/lemon.js';
+            ls.defer = true;
+            document.body.appendChild(ls);
+        });
+
+        // Refund Modal Handlers
         const policyModal = document.getElementById('policyModal');
         const openPolicyBtn = document.getElementById('openPolicyModal');
         const openPolicyFooter = document.getElementById('openPolicyModalFooter');
@@ -1639,29 +1736,19 @@
             if(e.target === policyModal) hidePolicy();
         };
 
-        // Analytics Tracking for Ad Optimizations
+        // Conversion Tracking
         document.querySelectorAll('.checkout').forEach(function(btn) {
             btn.addEventListener('click', function() {
-                // GA4 Event tracking
                 if (typeof gtag === 'function') {
                     gtag('event', 'begin_checkout', {
                         currency: 'USD',
-                        value: 19.00,
+                        value: 26.99,
                         items: [{
                             item_id: 'etsy-execution-roadmap',
                             item_name: 'The Etsy Execution Roadmap',
-                            price: 19.00,
+                            price: 26.99,
                             quantity: 1
                         }]
-                    });
-                }
-                // Meta Pixel Event tracking
-                if (typeof fbq === 'function') {
-                    fbq('track', 'InitiateCheckout', {
-                        value: 19.00,
-                        currency: 'USD',
-                        content_name: 'Etsy Execution Roadmap',
-                        content_ids: ['etsy-execution-roadmap']
                     });
                 }
             });
@@ -1669,4 +1756,4 @@
     </script>
 </body>
 </html>
-
+```
