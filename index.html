@@ -343,6 +343,38 @@
             text-transform: uppercase
         }
 
+                .footer-trust {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 14px;
+            padding: 8px 12px;
+            border: 1px solid rgba(var(--green-rgb), .25);
+            border-radius: 6px;
+            background: rgba(var(--green-rgb), .07);
+            color: #ffffffaa;
+            font: 10px 'JetBrains Mono';
+            letter-spacing: .04em;
+        }
+
+        .footer-trust svg {
+            width: 15px;
+            height: 15px;
+            color: var(--green);
+            flex-shrink: 0;
+        }
+
+        .footer-trust strong {
+            color: #34d399;
+            font-weight: 700;
+        }
+
+        @media(max-width:900px) {
+            .footer-trust {
+                margin-top: 12px;
+            }
+        }
+
         .footer-copy {
             max-width: 510px;
             color: #fff6;
@@ -582,18 +614,30 @@
                     alt="Mission dashboard preview"></div>
         </section>
     </main>
-    <footer class="footer">
+        <footer class="footer">
         <div class="footer-inner">
             <div>
-                <div class="footer-brand">Mission<span>Control</span></div>
-                <p class="footer-copy">Personalized execution roadmaps that turn what you have learned into clear daily
-                    action.</p>
+                <div class="footer-brand">Soft<span>Route</span></div>
+                <p class="footer-copy">Practical execution tools and roadmaps for digital entrepreneurs.</p>
+
+                <div class="footer-trust" aria-label="Secure checkout powered by Lemon Squeezy">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="3" y="10" width="18" height="11" rx="2"></rect>
+                        <path d="M7 10V7a5 5 0 0 1 10 0v3"></path>
+                    </svg>
+                    <span><strong>Secure checkout</strong> powered by Lemon Squeezy</span>
+                </div>
             </div>
-            <nav class="footer-links"><a href="#">Secure Checkout</a><a href="#">30-Day Guarantee</a><a href="#">Instant
-                    Delivery</a><a href="#">Contact</a></nav>
+            <nav class="footer-links">
+                <a href="#buy">Buy Planner</a>
+                <a href="mailto:softroute.online@gmail.com">Support</a>
+                <a href="#" id="openPolicyModalFooter">Refund Policy</a>
+            </nav>
         </div>
-        <div class="footer-bottom"><span>© 2026 Soft Route. All rights reserved.</span><span>Built for execution,
-                not endless learning.</span></div>
+        <div class="footer-bottom">
+            <span>© 2026 Soft Route. All rights reserved.</span>
+            <span>softroute.online@gmail.com</span>
+        </div>
     </footer>
     <div class="coming-soon" id="comingSoon">
         <div class="coming-card">
