@@ -21,6 +21,9 @@
     <link rel="preload" as="image" href="etsy-images/p1.webp" fetchpriority="high">
     <link rel="icon" type="image/png" href="SOFT.png">
 
+    <!-- Lemon Squeezy Overlay Script (Essential for popup modal) -->
+    <script src="https://assets.lemonsqueezy.com/lemon.js" defer></script>
+
     <!-- Optimized Font Loading -->
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@700;800;900&family=Outfit:wght@700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 
@@ -199,7 +202,6 @@
             top: 80px;
         }
 
-        /* Responsive Skeleton Shimmer Gallery Wrapper */
         .main-image-wrap {
             position: relative;
             overflow: hidden;
@@ -282,7 +284,6 @@
             height: 18px;
         }
 
-        /* Glassmorphism Demo Button */
         .img-demo-btn {
             position: absolute;
             bottom: 16px;
@@ -1200,7 +1201,6 @@
                         </svg>
                     </button>
                     
-                    <!-- Fast First Frame Image with High Fetchpriority & Async Decoding -->
                     <img class="main-image" 
                          id="mainImage" 
                          src="etsy-images/p1.webp" 
@@ -1210,7 +1210,6 @@
                          fetchpriority="high" 
                          decoding="async">
                     
-                    <!-- Glassmorphic Demo Overlay Button -->
                     <a href="/etsy-demo" target="_blank" rel="noopener noreferrer" class="img-demo-btn" title="Open interactive product demo in a new window">
                         <span class="demo-live-dot"></span>
                         <span>Try Live Demo</span>
@@ -1242,7 +1241,6 @@
                     <span>⚡ Built for execution, not passive video learning</span>
                 </div>
 
-                <!-- Verified Discount Box -->
                 <div class="offer-card">
                     <div class="offer-label">Limited Launch Pricing</div>
                     <div class="price-row">
@@ -1258,7 +1256,6 @@
                     </p>
                 </div>
 
-                <!-- Primary Conversion Button -->
                 <a class="primary-cta checkout lemonsqueezy-button" href="https://softroute.lemonsqueezy.com/checkout/buy/f26d478c-0a47-47e3-a183-89b9ce957b05?embed=1&media=0&desc=0&discount=0">
                     <span>Get The Etsy Planner — $26.99</span>
                     <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
@@ -1268,7 +1265,6 @@
 
                 <p class="delivery-note">Instant ZIP download delivered to your email immediately after checkout.</p>
 
-                <!-- 7-Day Trust Points -->
                 <div class="trust-row">
                     <div class="trust-card">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
@@ -1292,10 +1288,8 @@
                     </div>
                 </div>
 
-                <!-- Return Policy Link -->
                 <button class="refund-trigger" id="openPolicyModal">Read Return &amp; Refund Policy →</button>
 
-                <!-- Feature Deliverables -->
                 <div class="included">
                     <div class="included-header">
                         <h2>What's Inside Your Download</h2>
@@ -1378,7 +1372,6 @@
             <p class="section-desc">Stop opening 20 browser tabs with conflicting tutorials. Follow a proven sequence.</p>
             
             <div class="how-grid">
-                <!-- Card 1 -->
                 <div class="how-card">
                     <div>
                         <div class="how-card-top">
@@ -1400,7 +1393,6 @@
                     </div>
                 </div>
 
-                <!-- Card 2 -->
                 <div class="how-card">
                     <div>
                         <div class="how-card-top">
@@ -1421,7 +1413,6 @@
                     </div>
                 </div>
 
-                <!-- Card 3 -->
                 <div class="how-card">
                     <div>
                         <div class="how-card-top">
@@ -1449,7 +1440,6 @@
             <p class="section-desc">Be certain before you buy. Here is who this planner is built for.</p>
 
             <div class="audience-grid">
-                <!-- Yes Card -->
                 <div class="aud-card yes">
                     <div>
                         <div class="aud-header">
@@ -1475,7 +1465,6 @@
                     </div>
                 </div>
 
-                <!-- No Card -->
                 <div class="aud-card no">
                     <div>
                         <div class="aud-header">
@@ -1598,7 +1587,7 @@
         </a>
     </div>
 
-    <!-- Interactive Performance Scripts -->
+    <!-- Interactive Scripts -->
     <script>
         const images = [
             'etsy-images/p1.webp',
@@ -1616,7 +1605,7 @@
         const lightbox = document.getElementById('lightbox');
         const lightboxImg = document.getElementById('lightboxImage');
 
-        // Handle Image Ready state
+        // Initial Image Load Flag
         function markImageLoaded() {
             mainWrap.classList.add('loaded');
             main.classList.add('ready');
@@ -1645,7 +1634,7 @@
             });
         }
 
-        // Build Optimized Thumbnails
+        // Thumbnails Generation
         images.forEach((src, i) => {
             const btn = document.createElement('button');
             btn.className = 'thumb' + (i === 0 ? ' active' : '');
@@ -1658,7 +1647,6 @@
             img.height = 70;
             img.decoding = 'async';
 
-            // Lazy-load all thumbnails except the first
             if (i > 0) {
                 img.loading = 'lazy';
             }
@@ -1689,7 +1677,7 @@
             if (e.target.id === 'lightbox') lightbox.classList.remove('show');
         };
 
-        // Preload Remaining Slides in Idle Background (Zero Render Blocking)
+        // Preload Gallery In Idle Background
         window.addEventListener('load', () => {
             const preloadGalleryImages = () => {
                 images.slice(1).forEach(src => {
@@ -1704,14 +1692,13 @@
                 setTimeout(preloadGalleryImages, 1200);
             }
 
-            // Load Lemon Squeezy payment script asynchronously without locking initial paint
-            const ls = document.createElement('script');
-            ls.src = 'https://assets.lemonsqueezy.com/lemon.js';
-            ls.defer = true;
-            document.body.appendChild(ls);
+            // Fallback: initialize Lemon Squeezy listeners if not already bound
+            if (typeof window.createLemonSqueezy === 'function') {
+                window.createLemonSqueezy();
+            }
         });
 
-        // Refund Modal Handlers
+        // Refund Modal Logic
         const policyModal = document.getElementById('policyModal');
         const openPolicyBtn = document.getElementById('openPolicyModal');
         const openPolicyFooter = document.getElementById('openPolicyModalFooter');
@@ -1733,7 +1720,7 @@
             if(e.target === policyModal) hidePolicy();
         };
 
-        // Conversion Tracking
+        // Analytics Tracking
         document.querySelectorAll('.checkout').forEach(function(btn) {
             btn.addEventListener('click', function() {
                 if (typeof gtag === 'function') {
